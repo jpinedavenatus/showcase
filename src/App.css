@@ -1,0 +1,30 @@
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+
+.venatus-ads {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+#slot-billboard-top {
+    min-height: 250px;
+}
+
+.slot-leaderboard {
+    min-height: 90px;
+}
+
+
+@media (max-width: 1023px) {
+
+    #slot-billboard-top {
+        display: none !important;
+    }
+    .slot-leaderboard {
+    min-height: 250px !important;
+}
+}
+
