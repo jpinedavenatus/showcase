@@ -9,16 +9,14 @@ import Home from './Pages/Home';
 import Footer from './components/Footer';
 import Sandbox from './Pages/Sandbox';
 import DesktopTakeover from './Pages/DesktopTakeover';
-import MobileTakeover from './Pages/MobileView';
-import MobileAds from './Pages/MobileView';
 
 import ProsperNewSession from "./modules/ProsperNewSession";
 import DesktopView from './Pages/DesktopView';
-import Advertiser from './Pages/Advertiser';
-import Publisher from './Pages/Publisher';
 import MobileView from './Pages/MobileView';
+import CategoryPage from './Pages/CategoryPage';
 const App = () => {
   const [currentPage, setPage] = useState('');
+  const [pageHeader, setPageHeader] = useState('');
   useEffect(() => {
     WebFont.load({
       google: {
@@ -45,15 +43,15 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/articles' element={<Article />} />
-          <Route path='/publisher' element={<Publisher currentPage={currentPage} setPage={setPage} />} />
-          <Route path='/advertiser' element={<Advertiser />} />
+          <Route path='/publisher' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Publisher' />} />
+          <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
           <Route path='/sandbox-demo' element={<Sandbox />} />
           {/* subpages */}
           <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} />} />
           <Route path='/mobile-takeover' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
 
-          <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} />} />
-          <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
+          <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+          <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
         </Routes>
         {/* </div> */}
         {/* </div> */}

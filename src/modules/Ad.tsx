@@ -8,6 +8,7 @@ const Ad: FC<AdProps> = ({ placementName, alias }) => {
       "horizontal_sticky",
       "mobile_horizontal_sticky",
       "video_slider",
+      "pvp_video_slider",
     ];
     return validPlacements.includes(placementName);
   };

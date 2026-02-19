@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IPageProps } from '../types';
 import { PublishersMenu } from '../Constants';
 
-const Publisher: FC<IPageProps> = ({ setPage }) => {
+const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) => {
   const categoriesMenu = PublishersMenu;
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -15,12 +15,13 @@ const Publisher: FC<IPageProps> = ({ setPage }) => {
     <>
       <div id='wrapper'>
         <div className='max-w-6xl mx-auto space-y-3 mb-5'>
+          {/* Header */}
+          {pageHeader && <h1 className='flex font-semi text-4xl justify-center '>{pageHeader}</h1>}
           {categoriesMenu.map((item, index) => {
             const isOpen = activeIndex === index;
 
             return (
               <div key={index} className='border rounded-xl overflow-hidden'>
-                {/* Header */}
                 <button
                   onClick={() => toggleAccordion(index)}
                   className={`text-lg w-full flex justify-between items-center p-4 font-semibold text-left bg-gray-50 hover:bg-venatusred hover:text-white transition
@@ -40,11 +41,11 @@ const Publisher: FC<IPageProps> = ({ setPage }) => {
                             key={sub.pageId}
                             to={`${sub.path}?pageId=${sub.pageId}`}
                             className='relative w-full aspect-square overflow-hidden rounded-lg group block'
-
                             onClick={() => {
                               setPage(sub.pageId);
+                              console.log('pageHeader ........', pageHeader)
+                              setPageHeader?.(pageHeader ?? '')
                             }}
-
                           >
                             {/* Image */}
                             <img
@@ -75,4 +76,4 @@ const Publisher: FC<IPageProps> = ({ setPage }) => {
   );
 };
 
-export default Publisher;
+export default CategoryPage;

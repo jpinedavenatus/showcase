@@ -4,10 +4,10 @@ import { IPageProps, TMenu } from '../types';
 import { PublishersMenu } from '../Constants';
 
 
-const Sidebar: FC<IPageProps> = ({ setPage, currentPage }) => {
+const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(-1);
-
+  console.log('Sidebar = pageHeader', pageHeader)
   const menu: TMenu[] = PublishersMenu;
 
   return (
@@ -19,7 +19,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage }) => {
       >
         {/* Toggle Sidebar */}
         <div className='flex items-center justify-between p-4'>
-          {!collapsed && <span className='font-bold text-lg'>Showcase</span>}
+          {!collapsed && <span className='font-bold text-lg'>{pageHeader}</span>}
           <button onClick={() => setCollapsed(!collapsed)} className='border py-1 px-2 rounded-md hover:text-gray-500'>
             {collapsed ? '☰' : '↩'}
           </button>

@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar';
 import { useLocation } from 'react-router-dom';
 import DisplayAds from '../modules/DisplayAd';
 
-const DesktopView: FC<IPageProps> = ({ setPage, currentPage }) => {
+const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -20,10 +20,13 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage }) => {
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} />
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
       <div id='wrapper'>
+
         <DisplayAds placementName='vertical_sticky' page={currentPage} />
         <DisplayAds placementName='horizontal_sticky' page={currentPage} />
+        <DisplayAds placementName='pvp_video_slider' page={currentPage} />
+
         <div id='content-container' className='flex justify-center p-4'>
           <div className='w-full max-w-6xl sm:w-sm md:m-h-[250]'>
             <div className='flex justify-center mb-5'>
@@ -34,9 +37,14 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage }) => {
                 id='article-body'
                 className='w-full md:w-3/4 p-6 space-y-2  bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm'
               >
+
                 <h1 className='font-semibold text-2xl'>{currentPage && currentPage.replace('-', ' ').toUpperCase()}</h1>
                 <DisplayAds placementName='leaderboard' page={currentPage} />
+
                 <TextFiller />
+                <div className='h-[200px]'>
+                  <DisplayAds placementName='pvp_video' page={currentPage} />
+                </div>
                 <img className='m-auto' alt='placeholder' src={placeholder} />
                 <TextFiller />
                 <DisplayAds placementName='mpu' page={currentPage} />

@@ -20,11 +20,24 @@ const  DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placem
       supportedPlacements = ['leaderboard', 'double_mpu', 'billboard', 'mpu', 'skyscraper'];
       break;
 
+    case 'inline-video':
+      console.log('hdfhfhdfhdfhs', placementName)
+      supportedPlacements = ['pvp_video', 'video'];
+      break;
+
+    case 'video-slider':
+      console.log('hdfhfhdfhdfhs', placementName)
+      supportedPlacements = ['pvp_video_slider', 'video_slider'];
+      break;
+
     default:
-      console.warn('DisplayAds: page not found to set supportedPlacements!', page);
+      //  console.log('DisplayAds: page not found to set supportedPlacements!', page);
       break;
   }
   if (!supportedPlacements.includes(placementName)) return <></>;
-  else return <div className="flex justify-center align-middle"><Ad placementName={placementName}/></div>;
+  else {
+    if (placementName == 'pvp_video') return <div className="flex justify-center align-middle h-[200px]"><Ad placementName={placementName} /></div>;
+    else return <div className="flex justify-center align-middle"><Ad placementName={placementName} /></div>;
+  }
 };
 export default DisplayAds;

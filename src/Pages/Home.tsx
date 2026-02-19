@@ -5,36 +5,43 @@ interface ThumbnailItem {
   image: string;
   title: string;
 }
-interface ThumbnailProps {
-  image: string;
-  title: string;
-  onClick?: () => void;
-}
+const Thumbnail = () => (
+  <div
+    className='
+  w-[220px]
+  h-[200px]
+  md:h-[200px]
+  flex 
+  p-4
+  border border-default
+  rounded-md
+  shadow-xs
+  bg-neutral-primary-soft
+  transition-all duration-500 ease-out
+  hover:shadow-md
+  hover:bg-gradient-to-r
+  bg-gray-800
+  text-white
+  hover:from-red-500
+  hover:to-red-800
+  cursor-pointer
+'
+  >
+    <a href='#'>
+      {/* <img className='m-auto md:w-[100px] md:h= rounded-md' alt='placeholder' src={placeholder} /> */}
 
-const Thumbnail: React.FC<ThumbnailProps> = ({ image, title, onClick }) => {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="group flex-shrink-0 overflow-hidden rounded-lg bg-gray-200 text-left focus:outline-none focus:ring-2 focus:ring-blue-500"
-    >
-      <div className="relative aspect-video w-full">
-        <img
-          src={image}
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
-      </div>
+      <div className=' pt-2'>
+        <div className=''>
+          {/* <h5 className='text-1xl font-bold'>test</h5> */}
+          <div className="w-min break-all h-fit p-2 uppercase font-bold text-2xl">
 
-      <div className="p-2">
-        <p className="text-sm font-medium text-gray-800 truncate">
-          {title}
-        </p>
+          </div>
+        </div>
       </div>
-    </button>
-  );
-};
+    </a>
+  </div>
+);
+
 
 
 const Home: FC = () => {
@@ -58,21 +65,18 @@ const Home: FC = () => {
 
   return (
     <div id='wrapper'>
-      <div className='m-auto block w-full '>
-        <h1 className='text-4xl font-bold mx-auto'>Showcase</h1>
-        <div className="p-4">
-          <div className="flex flex-wrap gap-4">
-            {thumbnails.map((item) => (
-              <div
-                key={item.id}
-                className="w-full sm:w-[48%] lg:w-[31%] xl:w-[23%]"
-              >
-                <Thumbnail image={item.image} title={item.title} />
-              </div>
-            ))}
+      <div className='m-auto flex w-full '>
+        <h1 className='text-4xl font-bold mx-auto'>Advertiser</h1>
+      </div>
+
+      <div className='flex justify-center p-4'>
+        <div id='content-container' className='w-full max-w-6xl gap-10 sm:w-sm flex justify-center'>
+          <div className='flex flex-wrap gap-10 justify-center items-center max-w-[940px]'>
+            <Thumbnail />
+            <Thumbnail />
+            <Thumbnail />
           </div>
         </div>
-
       </div>
     </div>
   );
