@@ -28,7 +28,7 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
         <DisplayAds placementName='pvp_video_slider' page={currentPage} />
 
         <div id='content-container' className='flex justify-center p-4'>
-          <div className='w-full max-w-6xl sm:w-sm md:m-h-[250]'>
+          <div className='w-full  2xl:max-w-6xl max-w-5xl  sm:w-sm'>
             <div className='flex justify-center mb-5'>
               <DisplayAds placementName='billboard' page={currentPage} />
             </div>
