@@ -14,6 +14,7 @@ import ProsperNewSession from "./modules/ProsperNewSession";
 import DesktopView from './Pages/DesktopView';
 import MobileView from './Pages/MobileView';
 import CategoryPage from './Pages/CategoryPage';
+import PrerollVideo from './Pages/PrerollVideo';
 const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
@@ -52,6 +53,9 @@ const App = () => {
 
           <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
           <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+
+
+          <Route path='/preroll-video' element={<PrerollVideo  />} />
         </Routes>
         {/* </div> */}
         {/* </div> */}
