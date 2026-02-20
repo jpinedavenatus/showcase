@@ -97,7 +97,7 @@ export const PublishersMenu: TMenu[] = [
       {
         name: 'Preroll Video',
         image: `https://picsum.photos/300?random=31`,
-        path: '/desktop-view',
+        path: '/preroll-video',
         pageId: 'prerol-video',
       },
     ],
