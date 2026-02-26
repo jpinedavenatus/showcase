@@ -43,7 +43,7 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
 
   return (
     <>
-      <Disclosure as='nav' className='bg-white mb-10 shadow-lg border-b-gray-300 border f'>
+      <Disclosure as='nav' className='bg-white mb-10 shadow-lg border-b-gray-300 border ' id='header'>
         <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
           <div className='flex w-full py-4 px-6'>
             <div className='flex items-center  justify-between w-full '>

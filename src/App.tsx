@@ -27,7 +27,8 @@ const App = () => {
   }, []);
 
   return (
-    <main className='relative z-[2] h-full w-full min-h-screen bg-gradient-to-tl from-white to-gray-200'>
+    <>
+      <main className='relative z-[2] h-full w-full min-h-screen '>
       <ProsperNewSession />
       <BrowserRouter>
         {/* Navbar at the top */}
@@ -48,7 +49,7 @@ const App = () => {
           <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
           <Route path='/sandbox-demo' element={<Sandbox />} />
           {/* subpages */}
-          <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} />} />
+            <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
           <Route path='/mobile-takeover' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
 
           <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
@@ -61,9 +62,13 @@ const App = () => {
         {/* </div> */}
 
         {/* Footer at the bottom */}
-        <Footer />
+
       </BrowserRouter>
+
     </main>
+    <Footer />
+    </>
+
   );
 };
 

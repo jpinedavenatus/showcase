@@ -23,13 +23,6 @@ export interface IPageProps {
 
 export { };
 
-declare global {
-    interface Window {
-        __VM: any;
-
-    }
-}
-
 export type AdProps = {
     placementName: string;
     alias?: string;
