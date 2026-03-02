@@ -1,9 +1,11 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import placeholder from '../images/img.jpg'
 import { pvPlayer } from '../lib/pvPlayer'
 import { TextFiller } from '../components/utils'
 
 const PrerollVideo: FC = () => {
+
+  const [videoVisible, setVideoVisible] = useState<boolean>(false);
   let pvp: pvPlayer
 
   useEffect(() => {
@@ -19,16 +21,19 @@ const PrerollVideo: FC = () => {
 
   const onFlowCompleteCallback = () => {
     alert('proceed to content!')
+    setVideoVisible(false)
          document.body.style.overflow = 'unset';
      
   }
   const rewardGrandedCallback = () => {
     alert('video finished! reward granded!')
+    setVideoVisible(false)
       document.body.style.overflow = 'unset';
   }
 
   const handlePlay = () => {
-      document.body.style.overflow = 'hidden';
+    setVideoVisible(true)
+    document.body.style.overflow = 'hidden';
     pvp.playVideo()
   }
 
@@ -36,9 +41,10 @@ const PrerollVideo: FC = () => {
     <>
       <div
         id="player-container"
-        className="hidden z-10 w-[970px] aspect-video text-center   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  fixed bg-white p-2 rounded-sm shadow-lg"
+        className="hidden z-20 w-[970px] aspect-video text-center   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  fixed bg-white p-2 rounded-sm shadow-lg"
       ></div>
-       <div id='wrapper'>
+      {videoVisible && (<div className='w-full h-full absolute bg-black/75 z-10 t-0'></div>)}
+      <div id='wrapper' className='mt-10'>
 
 
 

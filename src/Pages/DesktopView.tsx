@@ -21,13 +21,13 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   return (
     <>
       <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
-      <div id='wrapper'>
+      <div id='wrapper' className='flex justify-center p-4 mt-50'>
 
         <DisplayAds placementName='vertical_sticky' page={currentPage} />
         <DisplayAds placementName='horizontal_sticky' page={currentPage} />
         <DisplayAds placementName='pvp_video_slider' page={currentPage} />
 
-        <div className='flex justify-center p-4'>
+
           <div id='content-container' className='w-full  2xl:max-w-6xl max-w-5xl  sm:w-sm px-5'>
             <div className='flex justify-center mb-5'>
               <DisplayAds placementName='billboard' page={currentPage} />
@@ -67,7 +67,7 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
               </aside>
             </div>
           </div>
-        </div>
+
       </div>
     </>
   );

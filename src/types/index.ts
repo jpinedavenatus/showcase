@@ -4,6 +4,7 @@ export type TMenu = {
     category: string;
     collapseLabel: string;
     expandLabel: string;
+    subCategory?:TMenu[]
     subPages: ISubPages[]
 };
 export interface ISubPages {
@@ -12,6 +13,7 @@ export interface ISubPages {
     pageId: string;
     path: string;
 }
+
 
 
 export interface IPageProps {

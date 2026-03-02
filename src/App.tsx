@@ -19,6 +19,7 @@ const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
   useEffect(() => {
+    console.log('dsgsgsdgsdg')
     WebFont.load({
       google: {
         families: ['Outfit:400,500,600,700,800,900'],
@@ -28,7 +29,7 @@ const App = () => {
 
   return (
     <>
-      <main className='relative z-[2] h-full w-full min-h-screen '>
+      {/* <main className='relative z-[2] h-full w-full min-h-screen '> */}
       <ProsperNewSession />
       <BrowserRouter>
         {/* Navbar at the top */}
@@ -65,7 +66,7 @@ const App = () => {
 
       </BrowserRouter>
 
-    </main>
+    {/* </main> */}
     <Footer />
     </>
 

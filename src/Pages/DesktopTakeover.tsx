@@ -2,12 +2,11 @@ import { FC, useEffect } from 'react';
 import placeholder from '../images/img.jpg';
 import { TextFiller } from '../components/utils';
 import { IPageProps } from '../types';
-import Sidebar from '../components/Sidebar';
 import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
 
 
-const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
     const location = useLocation();
     useEffect(() => {
         if (currentPage == '') {
@@ -20,6 +19,7 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =
         }
 
         const creative = new prvkCreative(currentPage)
+
         return () => {
             creative.removeScript();
             //   document.body.removeChild(script); // cleanup on unmount
@@ -29,12 +29,12 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =
 
     return (
         <>
-            <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
-            <div id='wrapper'>
+            {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
+            <div id='wrapper' className='mt-10'>
 
                 <div id='slot-desktop-takeover' className='w-[970px] justify-center flex m-auto'></div>
-                <div className='flex justify-center p-4'>
-                    <div id='content-container' className='w-full  2xl:max-w-6xl max-w-5xl  sm:w-sm px-5'>
+                <div id='content-container'  className='flex justify-center p-4'>
+                    <div className='w-full  2xl:max-w-6xl max-w-5xl  sm:w-sm px-5'>
                         <div className='flex justify-center mb-5'>
                         </div>
                         <div className='flex flex-col md:flex-row  gap-5  '>

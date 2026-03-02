@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IPageProps } from '../types';
-import { PublishersMenu } from '../Constants';
+import AdvertisersMenu, { PublishersMenu } from '../Constants';
 
 const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) => {
-  const categoriesMenu = PublishersMenu;
+  const categoriesMenu = (pageHeader === 'Publisher') ? PublishersMenu : AdvertisersMenu;
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -13,7 +13,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
   };
   return (
     <>
-      <div id='wrapper'>
+      <div id='wrapper' className='mt-10'>
         <div className='max-w-6xl mx-auto space-y-3 mb-5'>
           {/* Header */}
           {pageHeader && <h1 className='flex font-semi text-4xl justify-center '>{pageHeader}</h1>}
@@ -36,7 +36,24 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
                   <div className='overflow-hidden'>
                     <div className='p-4 border-t'>
                       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3'>
-                        {item.subPages.map((sub) => (
+                        {item.subCategory ? <>
+                        </> :
+
+                          item.subPages.map((sub) => (
+                            (sub.name === 'separator') ?
+                              <>
+                                <div
+                                  key={sub.pageId}
+                                  className='relative w-full aspect-square overflow-hidden rounded-lg group block'
+
+                                >
+                                  test
+                                </div>
+                                <br />
+                              </>
+
+
+                              :
                           <Link
                             key={sub.pageId}
                             to={`${sub.path}?pageId=${sub.pageId}`}
@@ -45,6 +62,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
                               setPage(sub.pageId);
                               console.log('pageHeader ........', pageHeader)
                               setPageHeader?.(pageHeader ?? '')
+
                             }}
                           >
                             {/* Image */}
@@ -52,17 +70,19 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
                               src={sub.image}
                               alt={sub.name}
                               className='w-full h-full object-cover group-hover:scale-110 transition duration-300'
-                            />
+                              /> 
 
-                            <div className='absolute inset-0 items-center text-center justify-center bg-black/40 opacity-100 group-hover:opacity-0 transition flex p-2'>
+
+                              <div className='absolute inset-0 items-center text-center justify-center bg-gradient-to-tr from-red-950/40 to-venatusred opacity-100/40 group-hover:opacity-0 transition flex p-2'>
                               <span className='text-white text-4xl'>{sub.name}</span>
                             </div>
 
-                            <div className='absolute inset-0 items-center text-center justify-center bg-venatusred/70 opacity-0 group-hover:opacity-100 transition flex p-2'>
+                              <div className='absolute inset-0 items-center text-center justify-center bg-gray-800/30 opacity-0 group-hover:opacity-100 transition flex p-2'>
                               <span className='text-white text-3xl border-white border-4 py-2 px-5'>{sub.name}</span>
                             </div>
                           </Link>
-                        ))}
+                        ))
+                        }
                       </div>
                     </div>
                   </div>

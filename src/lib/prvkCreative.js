@@ -10,9 +10,10 @@ export class prvkCreative {
     this.#init();
   }
   removeScript() {
-    if (this.#prvkScript) {
+   /*  if (this.#prvkScript) {
       window.top.document.body.removeChild(this.#prvkScript);
-    }
+
+    } */
   }
 
   getCreativeName() {
@@ -38,6 +39,7 @@ export class prvkCreative {
       injectJsPath: '',
     };
 
+    console.log(' this.#prvkData.src',  this.#prvkData.src)
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src =  this.#prvkData.src;
