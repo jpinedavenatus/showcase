@@ -34,7 +34,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
         <span className='text-white text-4xl'>{props.name}</span>
       </div>
 
-      <div className='absolute inset-0 items-center text-center justify-center bg-gray-800/30 opacity-0 group-hover:opacity-100 transition flex p-2 border-4 border-white shadow-xl'>
+      <div className='absolute inset-0 items-center text-center justify-center bg-gray-800 opacity-0 group-hover:opacity-100 transition flex p-2 border-4 border-white shadow-xl'>
 
         <span className='text-white text-3xl border-white border-4 py-2 px-5'>{props.name}</span>
       </div>
