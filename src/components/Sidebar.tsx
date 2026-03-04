@@ -58,9 +58,8 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                     {menuItems.subPages.map((sub) => (
                       <li key={sub.name}>
                         <Link
-                          className={`px-2 py-1 rounded-md cursor-pointer w-full block
-                          ${sub.pageId === currentPage ? 'bg-venatusred text-white' : 'hover:bg-venatusred hover:text-white'} `}
-                          key={sub.pageId}
+                          className={`px-2 py-1 cursor-pointer w-full block
+                          ${sub.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
                           to={`${sub.path}?pageId=${sub.pageId}`}
                           onClick={() => {
                             setPage(sub.pageId);
