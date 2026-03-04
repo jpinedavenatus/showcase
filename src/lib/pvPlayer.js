@@ -1,9 +1,11 @@
 export class pvPlayer {
+  //template script v4
   #placementName
   #onFlowComplete
   #onVideoFinished
   #container
   #playerMainContainer
+  #preloader
   playerContainer
 
   constructor(props) {
@@ -14,10 +16,10 @@ export class pvPlayer {
     this.#onFlowComplete = props.onFlowComplete
     this.#onVideoFinished = props.onVideoFinished
 
-    console.log('this.#playerMainContainer', this.#playerMainContainer)
     if (this.#playerMainContainer) {
       //set the width and height to 1px
       this.playerContainer = this.#createDivElement(this.#playerMainContainer)
+      this.#preloader = this.#createPreloader(this.#playerMainContainer)
     }
   }
 
@@ -27,6 +29,23 @@ export class pvPlayer {
     parentDiv.appendChild(playerDiv)
 
     return playerDiv
+  }
+
+  #createPreloader(parentDiv) {
+    const preloaderDiv = document.createElement('div')
+    preloaderDiv.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><g><circle cx="12" cy="3" r="1" fill="currentColor"><animate id="SVGelgoqhuA" attributeName="r" begin="0;SVGSRzJybSJ.end-0.5s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="16.5" cy="4.21" r="1" fill="currentColor"><animate id="SVGBcQu6cCi" attributeName="r" begin="SVGelgoqhuA.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="7.5" cy="4.21" r="1" fill="currentColor"><animate id="SVGSRzJybSJ" attributeName="r" begin="SVGeZGzNdVZ.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="19.79" cy="7.5" r="1" fill="currentColor"><animate id="SVGG5Q0fe0M" attributeName="r" begin="SVGBcQu6cCi.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="4.21" cy="7.5" r="1" fill="currentColor"><animate id="SVGeZGzNdVZ" attributeName="r" begin="SVGUTnihcal.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="21" cy="12" r="1" fill="currentColor"><animate id="SVG8aQG8dpc" attributeName="r" begin="SVGG5Q0fe0M.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="3" cy="12" r="1" fill="currentColor"><animate id="SVGUTnihcal" attributeName="r" begin="SVGHktsvT5Q.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="19.79" cy="16.5" r="1" fill="currentColor"><animate id="SVGqCF3Scrd" attributeName="r" begin="SVG8aQG8dpc.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="4.21" cy="16.5" r="1" fill="currentColor"><animate id="SVGHktsvT5Q" attributeName="r" begin="SVGSFNCBbxb.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="16.5" cy="19.79" r="1" fill="currentColor"><animate id="SVGMFYo1cJN" attributeName="r" begin="SVGqCF3Scrd.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="7.5" cy="19.79" r="1" fill="currentColor"><animate id="SVGSFNCBbxb" attributeName="r" begin="SVGLSoLpdOI.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><circle cx="12" cy="21" r="1" fill="currentColor"><animate id="SVGLSoLpdOI" attributeName="r" begin="SVGMFYo1cJN.begin+0.1s" calcMode="spline" dur="0.6s" keySplines=".27,.42,.37,.99;.53,0,.61,.73" values="1;2;1"/></circle><animateTransform attributeName="transform" dur="6s" repeatCount="indefinite" type="rotate" values="360 12 12;0 12 12"/></g></svg>`
+
+    preloaderDiv.style.position = 'fixed'
+    preloaderDiv.style.top = '50%'
+    preloaderDiv.style.left = '50%'
+    preloaderDiv.style.transform = 'translate(-50%, -50%)'
+    parentDiv.appendChild(preloaderDiv)
+    return preloaderDiv
+  }
+
+  #tooglePreloader(props) {
+    console.log('tooglePreloader >>  ', props)
+    this.#preloader.style.display = props ? 'unset' : 'none'
   }
 
   playVideo() {
@@ -42,13 +61,14 @@ export class pvPlayer {
       this.#onFlowComplete && typeof this.#onFlowComplete === 'function'
         ? this.#onFlowComplete
         : null
+
     const videoFinishedCallback =
       this.#onVideoFinished && typeof this.#onVideoFinished === 'function'
         ? this.#onVideoFinished
         : null
 
     playerMainContainer.style.display = 'block'
-
+    this.#tooglePreloader(true)
     console.log('[VIDEO] initialize Custom Video')
 
     // Set a timeout to handle the scenario where no ad is returned in 10 seconds.
@@ -71,7 +91,11 @@ export class pvPlayer {
     }
 
     const proceedToContent = (callback) => {
-      console.log('[VIDEO] Proceed To content: videoIsPlaying=', videoIsPlaying)
+      console.log(
+        '[VIDEO] Proceed To content: videoIsPlaying',
+        videoIsPlaying,
+        callback,
+      )
       if (!videoIsPlaying) {
         callback && callback()
       }
@@ -95,7 +119,7 @@ export class pvPlayer {
       }
     }
 
-    function closeVideoPlayer() {
+    const closeVideoPlayer = () => {
       hideVideoContainer()
       playerMainContainer.style.display = 'none'
       //document.getElementById("player-container").classList.add("hidden"); //remove main container.
@@ -119,6 +143,7 @@ export class pvPlayer {
     }
 
     const handleVideoStarted = () => {
+      this.#tooglePreloader(false)
       console.log('[VIDEO] Video Started.')
       videoIsPlaying = true
       clearTimeout(adLoadTimeout)

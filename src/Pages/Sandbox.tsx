@@ -63,7 +63,7 @@ const Sandbox: FC = () => {
 
   return (
     <div id='wrapper'>
-      <div className='m-auto flex w-full '>
+      <div className='m-auto flex w-full'>
         <h1 className='text-4xl font-bold mx-auto'>Sandbox Demos</h1>
       </div>
 

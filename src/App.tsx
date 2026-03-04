@@ -41,24 +41,24 @@ const App = () => {
 
         {/* Page Content */}
         {/* <div className="flex-1 p-4"> */}
-             <div id='wrapper' className='mt-10 '>
+        <div id='wrapper' className='flex-1' >
           <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
 
-          <Route path='/publisher' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Publisher' />} />
-          <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
-          <Route path='/sandbox-demo' element={<Sandbox />} />
-          {/* subpages */}
+            <Route path='/publisher' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Publisher' />} />
+            <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
+            <Route path='/sandbox-demo' element={<Sandbox />} />
+            {/* subpages */}
             <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-          <Route path='/mobile-takeover' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
+            <Route path='/mobile-takeover' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
 
-          <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-          <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
 
 
-          <Route path='/preroll-video' element={<PrerollVideo  />} />
-        </Routes>
+            <Route path='/preroll-video' element={<PrerollVideo />} />
+          </Routes>
         </div>
 
         {/* </div> */}
@@ -68,8 +68,8 @@ const App = () => {
 
       </BrowserRouter>
 
-    {/* </main> */}
-    <Footer />
+      {/* </main> */}
+      <Footer />
     </>
 
   );

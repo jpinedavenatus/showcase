@@ -44,9 +44,6 @@ const PrerollVideo: FC = () => {
         className="hidden z-20 w-[970px] aspect-video text-center   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  fixed bg-white p-2 rounded-sm shadow-lg"
       ></div>
       {videoVisible && (<div className='w-full h-full absolute bg-black/75 z-10 t-0'></div>)}
-      <div id='wrapper' className='mt-10'>
-
-
 
         <div id='content-container' className='flex justify-center p-4'>
           <div className='w-full max-w-6xl sm:w-sm md:m-h-[250]'>
@@ -91,7 +88,7 @@ const PrerollVideo: FC = () => {
             </div>
           </div>
         </div>
-      </div>
+     
       
     </>
   )

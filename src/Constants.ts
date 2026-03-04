@@ -364,7 +364,7 @@ export const desktopCreative = (param: string) => {
     case 'premium-expandable':
       result = {
         creativeName: 'Premium Expandable Takeover',
-        src: 'https://cdn.prvk.io/studio/modal-takeover/1602/creative.min.js?v=%%CACHEBUSTER%%',
+        src: 'https://cdn.prvk.io/studio/AU-900301-FALLOUTFTP/1536/creative.min.js?v=%%CACHEBUSTER%%',
         id: 'vdrm-script-1602',
       };
       break;

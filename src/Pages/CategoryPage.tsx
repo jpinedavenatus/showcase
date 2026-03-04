@@ -43,7 +43,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
 
   return (
     <>
-      <div className='max-w-6xl mx-auto space-y-3 mb-5'>
+      <div className='max-w-6xl mx-auto space-y-3 mb-5 mt-10'>
         {/* Header */}
         {pageHeader && <h1 className='flex font-semi text-4xl justify-center'>{pageHeader}</h1>}
         {categoriesMenu.map((item, index) => {

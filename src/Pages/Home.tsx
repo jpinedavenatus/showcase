@@ -1,16 +1,17 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Home: FC = () => {
 
   return (
     <>
-      <div className='flex items-center justify-center h-full'>
-        <div className="flex  w-full flex-col md:flex-row overflow-hidden h-[400px] mb-10">
+      <div className=''>
+        <div className="flex  w-full flex-col md:flex-row overflow-hidden items-center justify-center h-screen ">
           {/* Left Section */}
-          <a
-            href="#him"
-            className="group relative flex flex-1 items-center justify-center bg-gray-900 transition-all duration-500 ease-in-out md:hover:flex-[1.5]"
+          <Link
+            to='/publisher'
+            className="h-full group relative flex flex-1 items-center justify-center bg-gray-900 transition-all duration-500 ease-in-out md:hover:flex-[1.5]"
           >
             {/* Background Image */}
             <div
@@ -25,12 +26,12 @@ const Home: FC = () => {
                 EXPLORE DEMOS
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Right Section */}
-          <a
-            href="#her"
-            className="group relative flex flex-1 items-center justify-center bg-gray-800 transition-all duration-500 ease-in-out md:hover:flex-[1.5]"
+          <Link
+            to='/advertiser'
+            className="h-full group relative flex flex-1 items-center justify-center bg-gray-800 transition-all duration-500 ease-in-out md:hover:flex-[1.5]"
           >
             {/* Background Image */}
             <div
@@ -45,7 +46,7 @@ const Home: FC = () => {
                 EXPLORE DEMOS
           </div>
         </div>
-          </a>
+          </Link>
       </div>
       </div>
 
