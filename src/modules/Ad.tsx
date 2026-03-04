@@ -18,6 +18,10 @@ const Ad: FC<AdProps> = ({ placementName, alias }) => {
     console.log("[PROSPER] add", placementName);
 
     const handleAdManagerPush = (admanager: any, scope: any) => {
+      if (admanager) {
+        //dummy)
+      }
+
       if (placementName === "vertical_sticky") {
         scope.Config.verticalSticky().display();
       } else {

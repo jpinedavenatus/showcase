@@ -6,7 +6,9 @@ const ProsperNewSession = () => {
     self.__VM = self.__VM || [];
     self.__VM.push(function (admanager: any, scope: any) {
 
-  
+      if(admanager)  {
+        //dummy)
+      }
       if (!eventAdded) {
         setEventAdded(true);
             console.log('Ad Event')

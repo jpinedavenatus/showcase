@@ -107,12 +107,7 @@ export const PublishersMenu: TMenu[] = [
 ];
 
 const AdvertisersMenu: TMenu[] = [
-  {
-    category: 'All Formats',
-    collapseLabel: 'All',
-    expandLabel: 'All Formats',
-    subPages: [],
-  },
+
   {
     category: 'Desktop Takeovers',
     collapseLabel: 'DTO',
