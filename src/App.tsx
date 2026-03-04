@@ -4,7 +4,6 @@ import WebFont from 'webfontloader';
 
 import './App.css';
 import NavBar from './components/NavBar';
-import Article from './Pages/Article';
 import Home from './Pages/Home';
 import Footer from './components/Footer';
 import Sandbox from './Pages/Sandbox';
@@ -42,10 +41,11 @@ const App = () => {
 
         {/* Page Content */}
         {/* <div className="flex-1 p-4"> */}
-        <Routes>
+             <div id='wrapper' className='mt-10'>
+          <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/articles' element={<Article />} />
+
           <Route path='/publisher' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Publisher' />} />
           <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
           <Route path='/sandbox-demo' element={<Sandbox />} />
@@ -59,6 +59,8 @@ const App = () => {
 
           <Route path='/preroll-video' element={<PrerollVideo  />} />
         </Routes>
+        </div>
+
         {/* </div> */}
         {/* </div> */}
 

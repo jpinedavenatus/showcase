@@ -30,7 +30,7 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
     return (
         <>
             {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
-            <div id='wrapper' className='mt-10'>
+
 
                 <div id='slot-desktop-takeover' className='w-[970px] justify-center flex m-auto'></div>
                 <div id='content-container'  className='flex justify-center p-4'>
@@ -67,7 +67,7 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+
         </>
     );
 };

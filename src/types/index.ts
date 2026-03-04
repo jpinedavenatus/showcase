@@ -4,8 +4,8 @@ export type TMenu = {
     category: string;
     collapseLabel: string;
     expandLabel: string;
-    subCategory?:TMenu[]
-    subPages: ISubPages[]
+    subCategory?: { category: string; subPages: ISubPages[] }[]
+    subPages?: ISubPages[]
 };
 export interface ISubPages {
     name: string;

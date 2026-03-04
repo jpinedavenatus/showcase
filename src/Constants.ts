@@ -113,128 +113,136 @@ const AdvertisersMenu: TMenu[] = [
     expandLabel: 'All Formats',
     subPages: [],
   },
-
   {
     category: 'Desktop Takeovers',
     collapseLabel: 'DTO',
     expandLabel: 'Desktop Takeovers',
-    subPages: [
+    subCategory: [
       {
-        name: 'Premium Modal',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-modal',
+        category: 'Templates', subPages: [
+          {
+            name: 'Premium Modal',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-modal',
+          },
+          {
+            name: 'Premium Expandable',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-expandable',
+          },
+          {
+            name: 'Microstitial',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'microstitial',
+          },
+          {
+            name: 'Toggle',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-toggle',
+          },
+          {
+            name: 'Pushdown',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'pushdown',
+          },
+          {
+            name: 'Carousel',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'carousel',
+          },
+          {
+            name: 'Floor Overlay',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'floor-overlay-banner',
+          }
+        ]
       },
       {
-        name: 'Premium Expandable',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-expandable',
+        category: 'Features', subPages: [
+          {
+            name: 'Video Background',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'video-background',
+          },
+          {
+            name: 'Side Change on Scroll',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'side-change-on-scroll',
+          },
+          {
+            name: 'Side Change on Expand',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'side-change-on-expand',
+          },
+          {
+            name: 'Sticky Video',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'sticky-video',
+          },
+          {
+            name: 'Interstitial with Poll Takeover',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'interstitial-with-poll',
+          },
+          {
+            name: 'Two Embeds Takeover',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'two-embeds',
+          },
+          {
+            name: 'Animations',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'animations',
+          },
+        ]
       },
       {
-        name: 'Microstitial',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'microstitial',
-      },
-      {
-        name: 'Toggle',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-toggle',
-      },
-      {
-        name: 'Pushdown',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'pushdown',
-      },
-      {
-        name: 'Carousel',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'carousel',
-      },
-      {
-        name: 'Floor Overlay',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'floor-overlay-banner',
-      },
-
-      //--fatures
-      {
-        name: 'Video Background',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'video-background',
-      },
-      {
-        name: 'Side Change on Scroll',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'side-change-on-scroll',
-      },
-      {
-        name: 'Side Change on Expand',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'side-change-on-expand',
-      },
-      {
-        name: 'Sticky Video',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'sticky-video',
-      },
-      {
-        name: 'Interstitial with Poll Takeover',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'interstitial-with-poll',
-      },
-      {
-        name: 'Two Embeds Takeover',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'two-embeds',
-      },
-      {
-        name: 'Animations',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'animations',
-      },
-      //embeds
-      {
-        name: 'Twitch',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-twitch',
-      },
-      {
-        name: 'Spotify',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-spotify',
-      },
-      {
-        name: 'Amazon',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'amazon',
-      },
-      {
-        name: 'Deezer',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'deezer',
-      },
-      {
-        name: 'Youtube',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'premium-youtube',
+        category: 'Embeds', subPages: [
+          {
+            name: 'Twitch',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-twitch',
+          },
+          {
+            name: 'Spotify',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-spotify',
+          },
+          {
+            name: 'Amazon',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'amazon',
+          },
+          {
+            name: 'Deezer',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'deezer',
+          },
+          {
+            name: 'Youtube',
+            image: placeholder,
+            path: '/desktop-takeover',
+            pageId: 'premium-youtube',
+          }
+        ]
       }
     ],
   },
@@ -301,7 +309,7 @@ const AdvertisersMenu: TMenu[] = [
     ],
   },
 ];
-AdvertisersMenu[0].subPages = [...AdvertisersMenu[1].subPages, ...AdvertisersMenu[2].subPages];
+//AdvertisersMenu[0].subPages = [...AdvertisersMenu[2].subPages, ...AdvertisersMenu[3].subPages];
 
 export default AdvertisersMenu;
 

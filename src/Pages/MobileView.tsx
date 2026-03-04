@@ -21,7 +21,7 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
   return (
     <>
      <Sidebar currentPage={currentPage} setPage={setPage} />
-     <div id='wrapper' className='mb-5'>
+  
       <div className='flex justify-center items-center '>
         {/* <!-- Phone body --> */}
         <div className='relative w-[390px] h-[780px] bg-black rounded-[3rem] p-3 shadow-2xl'>
@@ -71,7 +71,7 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
           </div>
         </div>
       </div>
-    </div>
+
     </>
    
   
