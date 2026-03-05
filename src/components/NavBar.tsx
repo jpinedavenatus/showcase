@@ -14,18 +14,26 @@ type tNavBar = {
 const navigation: tNavBar[] = [
   { name: 'Home', path: '/home', current: false },
   {
-    name: 'Publishers',
+    name: 'Publisher',
     path: '/publisher',
     current: false,
   },
   {
-    name: 'Advertisers',
+    name: 'Advertiser',
     path: '/advertiser',
     current: false,
   },
   {
-    name: 'Sandbox Demo',
+    name: 'Sandbox',
     path: '/sandbox-demo',
+    current: false,
+  }, {
+    name: 'Contacts ',
+    path: 'https://www.venatus.com/contact',
+    current: false,
+  }, {
+    name: 'Specs ',
+    path: 'https://docs.google.com/presentation/d/1Agilje40iN6MZVAtq6t-9yEyoAxRsTiYZDPwdhm6UwA/edit#slide=id.gb77e77b0e4_0_41',
     current: false,
   },
 ];
