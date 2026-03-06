@@ -51,12 +51,12 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
 
   return (
     <>
-      <Disclosure as='nav' className='bg-white shadow-lg border-b-gray-300 border ' id='header'>
-        <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
-          <div className='flex w-full py-4 px-6'>
+      <Disclosure as='nav' className='bg-white shadow-lg border-b-gray-300  fixed w-screen' id='header'>
+        <div className=' flex flex-wrap items-center justify-content mx-auto'>
+          <div className='flex w-full  px-6'>
             <div className='flex items-center  justify-between w-full '>
-              <div className='shrink-2 overflow-hidden'>
-                <img alt='Your Company' src={logo} className='w-36 lg:w-36' />
+              <div className='shrink-2 overflow-hidden  flex-start'>
+                <img alt='Venatus' src={logo} className='w-36 lg:w-36' />
               </div>
 
               <div className='hidden md:block'>
@@ -70,10 +70,9 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
                         setPage('');
                       }}
                       aria-current={tab.current ? 'page' : undefined}
-                      className={classNames(
-                        activePath === tab.path ? 'text-venatusred' : 'text-slate-950  hover:text-venatusred',
-                        ' px-3 text-lg font-medium',
-                      )}
+                      className={` px-3 text-lg font-medium py-5 
+                        ${activePath === tab.path ? 'text-venatusred' : 'text-slate-950  hover:text-venatusred'} 
+                        `}
                     >
                       {tab.name}
                     </Link>

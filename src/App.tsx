@@ -41,7 +41,7 @@ const App = () => {
 
         {/* Page Content */}
         {/* <div className="flex-1 p-4"> */}
-        <div id='wrapper' className='flex-1' >
+        <div id='wrapper' className='flex-1 mt-[70px]' >
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />

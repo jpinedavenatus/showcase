@@ -6,8 +6,8 @@ const Home: FC = () => {
 
   return (
     <>
-      <div className=''>
-        <div className="flex  w-full flex-col md:flex-row overflow-hidden items-center justify-center h-screen ">
+      <div className='inset-0'>
+        <div className="flex w-full flex-col md:flex-row overflow-hidden items-center justify-center h-full ">
           {/* Left Section */}
           <Link
             to='/publisher'

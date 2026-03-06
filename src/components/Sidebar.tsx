@@ -1,64 +1,74 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IPageProps, TMenu } from '../types';
-import { PublishersMenu } from '../Constants';
+import { PUBLISHERS_MENU } from '../Constants';
+import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 
 const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(-1);
+  const [isCollapsed, setisCollapsed] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
   console.log('Sidebar = pageHeader', pageHeader)
-  const menu: TMenu[] = PublishersMenu;
+  const menu: TMenu[] = PUBLISHERS_MENU;
+
+
+  /*   const toggleAccordion = (index: number) => {
+      setDropdownOpen(dropdownOpen === index ? null : index);
+    }; */
 
   return (
-    <div className=' ml-2 flex max-h-[80vh] min-h-[70vh] overflow-y-auto overflow-x-hidden absolute z-[9999999] shadow-lg rounded-md'>
+    <>
+
+      {/* <div className=' ml- mt-5 flex max-h-[80vh] min-h-[70vh] overflow-y-auto overflow-x-hidden  z-[9999999] shadow-lg rounded-md fixed'> */}
       {/* Sidebar */}
-      <aside
-        className={`bg-white   transition-all  duration-300  
-        ${collapsed ? 'w-16' : 'w-64'}`}
+      < aside className={`fixed  left-0 z-20 flex h-screen flex-col bg-white  text-gray-900 transition-all duration-300 ease-in-out border-r border-gray-200 shadow-2xl
+        ${isCollapsed ? 'w-20' : 'w-64'}`
+      }
       >
         {/* Toggle Sidebar */}
-        <div className='flex items-center justify-between p-4'>
-          {!collapsed && <span className='font-bold text-lg'>{pageHeader}</span>}
-          <button onClick={() => setCollapsed(!collapsed)} className='border py-1 px-2 rounded-md hover:text-gray-500'>
-            {collapsed ? '☰' : '↩'}
+        <div className={`flex items-center  p-4
+           ${isCollapsed ? 'justify-center' : 'justify-between'}`
+        }>
+          {!isCollapsed && <span className='font-bold text-lg'>{pageHeader}</span>}
+          <button onClick={() => setisCollapsed(!isCollapsed)} className='border py-1 px-2 rounded-md hover:text-gray-500'>
+            {isCollapsed ? '☰' : <ChevronLeftIcon className="w-5 h-5 text-gray-600" />}
           </button>
         </div>
 
         {
           //! ALL MENUS
         }
-        <ul className='mt-4 space-y-2'>
+        < div className='mt-4 space-y-2 ' >
           {/* Dropdown Button */}
 
           {menu.map((menuItems, index) =>
             //with  Sub menus
             menuItems.subPages ? (
-              <li
+              <div
                 key={menuItems.category}
-                className={`cursor-pointer  
-               ${dropdownOpen === index ? 'border border-venatusred rounded-sm' : ''}
+                className={`cursor-pointer 
+               ${dropdownOpen === index ? 'border-b-2 border-b-venatusred' : ''}
               `}
               >
                 <div
                   className={`px-4 py-2 flex items-center hover:bg-venatusred  hover:text-white
-                  ${collapsed ? 'justify-center' : 'justify-between'}
+                  ${isCollapsed ? 'justify-center' : 'justify-between'}
                   ${dropdownOpen === index ? 'bg-venatusred text-white ' : ''}
                 `}
                   onClick={() => setDropdownOpen(dropdownOpen === index ? -1 : index)} //supports toggle change by setting to
                 >
-                  <span>{!collapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
+                  <span>{!isCollapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
 
-                  {!collapsed && <span className='ml-2'>{dropdownOpen === index ? '▲' : '▼'}</span>}
+                  {!isCollapsed && <span className='ml-2'>{dropdownOpen === index ? '-' : '+'}</span>}
                 </div>
 
                 {/* Submenu (pushes other items down) */}
-                {dropdownOpen === index && !collapsed && (
-                  <ul className='my-2 space-y-2 px-2'>
+                {dropdownOpen === index && !isCollapsed && (
+                  <div className={`my-2 space-y-2 px-2 grid  transition-all duration-300 {${dropdownOpen === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'} `}>
                     {menuItems.subPages.map((sub) => (
-                      <li key={sub.name}>
+                      <div key={sub.name}>
                         <Link
-                          className={`px-2 py-1 cursor-pointer w-full block
+                          className={`px-2 py-1 cursor-pointer w-full block 
                           ${sub.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
                           to={`${sub.path}?pageId=${sub.pageId}`}
                           onClick={() => {
@@ -67,27 +77,29 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                         >
                           {sub.name}
                         </Link>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 )}
-              </li>
+              </div>
             ) :
               //no  Sub menus
               (
-              <li
+                <div
                   key={menuItems.category}
                   className='px-4 py-2 hover:bg-venatusred  hover:text-white cursor-pointer justify-between'
               >
-                <span>{!collapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
-              </li>
+                  <span>{!isCollapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
+                </div>
             ),
           )}
 
           {/* Other menu items */}
-        </ul>
+        </div >
       </aside>
-    </div>
+      {/* </div> */}
+
+    </>
   );
 };
 

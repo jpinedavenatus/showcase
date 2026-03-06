@@ -29,3 +29,11 @@ export type AdProps = {
     placementName: string;
     alias?: string;
 };
+
+export type TThumbnailProps = {
+    name: string;
+    image: string;
+    pageId: string;
+    path: string;
+    pageHeader?: string;
+};
