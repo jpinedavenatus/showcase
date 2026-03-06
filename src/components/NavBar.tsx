@@ -51,9 +51,9 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
 
   return (
     <>
-      <Disclosure as='nav' className='bg-white shadow-lg border-b-gray-300  fixed w-screen' id='header'>
-        <div className=' flex flex-wrap items-center justify-content mx-auto'>
-          <div className='flex w-full  px-6'>
+      <Disclosure as='nav' className='bg-white shadow-lg border-b-gray-300  fixed w-screen z-20 py-4 md:py-0' id='header'>
+        <div className=' flex flex-wrap items-center justify-content mx-auto '>
+          <div className='flex w-full  px-6 '>
             <div className='flex items-center  justify-between w-full '>
               <div className='shrink-2 overflow-hidden  flex-start'>
                 <img alt='Venatus' src={logo} className='w-36 lg:w-36' />
