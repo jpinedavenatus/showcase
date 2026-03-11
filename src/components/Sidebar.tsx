@@ -1,8 +1,8 @@
-import { FC, useState } from 'react';
+import { FC, ForwardRefExoticComponent, RefAttributes, SVGProps, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IPageProps, TMenu } from '../types';
 import { PUBLISHERS_MENU } from '../Constants';
-import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import { ChevronLeftIcon, ComputerDesktopIcon, DevicePhoneMobileIcon, FilmIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
 
 
 const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
@@ -11,6 +11,16 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   console.log('Sidebar = pageHeader', pageHeader)
   const menu: TMenu[] = PUBLISHERS_MENU;
 
+  const iconMap: {
+    [key: string]: ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>;
+  } = {
+    ChevronLeftIcon,
+    DevicePhoneMobileIcon,
+    ComputerDesktopIcon,
+    VideoCameraIcon,
+    FilmIcon
+
+  };
 
   /*   const toggleAccordion = (index: number) => {
       setDropdownOpen(dropdownOpen === index ? null : index);
@@ -41,9 +51,10 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
         < div className='mt-4 space-y-2 ' >
           {/* Dropdown Button */}
 
-          {menu.map((menuItems, index) =>
-            //with  Sub menus
-            menuItems.subPages ? (
+          {menu.map((menuItems, index) => {
+            // const Icon = iconMap[menuItems.collapseLabel];
+            const Icon = iconMap[menuItems.collapseLabel as keyof typeof iconMap];
+            return (
               <div
                 key={menuItems.category}
                 className={`cursor-pointer 
@@ -57,7 +68,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                 `}
                   onClick={() => setDropdownOpen(dropdownOpen === index ? -1 : index)} //supports toggle change by setting to
                 >
-                  <span>{!isCollapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
+                  <span>{!isCollapsed ? menuItems.expandLabel : (Icon && <Icon className="w-8 h-8 rounded-2xl text-white bg-venatusred p-1" />)}</span>
 
                   {!isCollapsed && <span className='ml-2'>{dropdownOpen === index ? '-' : '+'}</span>}
                 </div>
@@ -65,7 +76,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                 {/* Submenu (pushes other items down) */}
                 {dropdownOpen === index && !isCollapsed && (
                   <div className={`my-2 space-y-2 px-2 grid  transition-all duration-300 {${dropdownOpen === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'} `}>
-                    {menuItems.subPages.map((sub) => (
+                    {menuItems.subPages && menuItems.subPages.map((sub) => (
                       <div key={sub.name}>
                         <Link
                           className={`px-2 py-1 cursor-pointer w-full block 
@@ -82,16 +93,11 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                   </div>
                 )}
               </div>
-            ) :
-              //no  Sub menus
-              (
-                <div
-                  key={menuItems.category}
-                  className='px-4 py-2 hover:bg-venatusred  hover:text-white cursor-pointer justify-between'
-              >
-                  <span>{!isCollapsed ? menuItems.expandLabel : menuItems.collapseLabel}</span>
-                </div>
-            ),
+            )
+          }
+            //with  Sub menus
+
+
           )}
 
           {/* Other menu items */}

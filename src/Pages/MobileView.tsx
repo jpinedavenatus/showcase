@@ -51,7 +51,8 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
                       <TextFiller />
                       <img className='m-auto' alt='placeholder' src={placeholder} />
                       <div className='flex justify-center mb-5'>
-                        <Ad placementName='leaderboard' />
+                        <Ad placementName='mpu' />
+
                       </div>
                       <TextFiller />
                       <img className='m-auto' alt='placeholder' src={placeholder} />

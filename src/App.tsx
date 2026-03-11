@@ -14,6 +14,7 @@ import DesktopView from './Pages/DesktopView';
 import MobileView from './Pages/MobileView';
 import CategoryPage from './Pages/CategoryPage';
 import PrerollVideo from './Pages/PrerollVideo';
+import MobileTakeover from './Pages/MobileTakeover';
 const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
@@ -51,7 +52,7 @@ const App = () => {
             <Route path='/sandbox-demo' element={<Sandbox />} />
             {/* subpages */}
             <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-            <Route path='/mobile-takeover' element={<MobileView currentPage={currentPage} setPage={setPage} />} />
+            <Route path='/mobile-takeover' element={<MobileTakeover currentPage={currentPage} setPage={setPage} />} />
 
             <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
             <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />

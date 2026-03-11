@@ -13,9 +13,6 @@ export interface ISubPages {
     pageId: string;
     path: string;
 }
-
-
-
 export interface IPageProps {
     setPage: Dispatch<SetStateAction<string>>;
     currentPage: string;
@@ -37,3 +34,8 @@ export type TThumbnailProps = {
     path: string;
     pageHeader?: string;
 };
+
+export enum E_DEVICE_TYPE {
+    MOBILE = 'mobile',
+    DESKTOP = 'desktop'
+}

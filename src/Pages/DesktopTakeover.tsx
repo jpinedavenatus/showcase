@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import placeholder from '../images/img.jpg';
 import { TextFiller } from '../components/utils';
-import { IPageProps } from '../types';
+import { E_DEVICE_TYPE, IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
 
@@ -18,7 +18,7 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
             }
         }
 
-        const creative = new prvkCreative(currentPage)
+        const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP })
 
         return () => {
             creative.removeScript();

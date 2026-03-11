@@ -21,17 +21,18 @@ const  DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placem
       break;
 
     case 'inline-video':
-      console.log('hdfhfhdfhdfhs', placementName)
       supportedPlacements = ['pvp_video', 'video'];
       break;
 
     case 'video-slider':
-      console.log('hdfhfhdfhdfhs', placementName)
       supportedPlacements = ['pvp_video_slider', 'video_slider'];
       break;
 
+    case 'mobile-regular-ads':
+      supportedPlacements = ['mpu'];
+      break;
     default:
-      //  console.log('DisplayAds: page not found to set supportedPlacements!', page);
+      console.log('DisplayAds: page not found to set supportedPlacements!', page);
       break;
   }
   if (!supportedPlacements.includes(placementName)) return <></>;

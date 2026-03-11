@@ -61,7 +61,6 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
 
   const Thumbnail = ({ name, image, pageId, path, pageHeader }: TThumbnailProps) => (
     <Link
-      key={pageId}
       to={`${path}?pageId=${pageId}`}
       className='relative w-full aspect-square overflow-hidden  group block'
       onClick={() => {
@@ -113,25 +112,21 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
                 <div className='overflow-hidden'>
                   {item.subCategory ? (
                     <>
-                      {item.subCategory.map((item, index) => {
+                      {item.subCategory.map((item, subIndex) => {
 
 
                         return (
                           <InnerAccordion
-                            index={index}
-                            key={index}
-                            isOpen={activeSubIndex === index}
-                            onToggle={() => toggleSubAccordion(index)}
+                            index={subIndex}
+                            isOpen={activeSubIndex === subIndex}
+                            onToggle={() => toggleSubAccordion(subIndex)}
                             category={item.category}
                           >
-                            {item?.subPages.map((subitems) => (
-                              <Thumbnail {...subitems} />
+                            {item?.subPages.map((subitems, subIndex2) => (
+                              <Thumbnail key={subIndex2} {...subitems} />
                             ))}
 
                           </InnerAccordion>
-
-
-
                         );
                       })}
                     </>
@@ -143,8 +138,8 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
                         {
                           // only subpages
                           item?.subPages &&
-                            item?.subPages.map((subitems) => (
-                              <Thumbnail {...subitems} />
+                            item?.subPages.map((subitems, subIndex) => (
+                              <Thumbnail key={subIndex} {...subitems} />
                             ))
                         }
                       </div>

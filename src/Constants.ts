@@ -5,7 +5,7 @@ import placeholder from './images/300x300.jpg';
 export const PUBLISHERS_MENU: TMenu[] = [
   {
     category: 'Takeovers',
-    collapseLabel: 'TO',
+    collapseLabel: 'ChevronLeftIcon',
     expandLabel: 'Takeovers',
     subPages: [
       {
@@ -25,7 +25,7 @@ export const PUBLISHERS_MENU: TMenu[] = [
   {
     category: 'Rich Medias',
 
-    collapseLabel: 'RM',
+    collapseLabel: 'FilmIcon',
     expandLabel: 'Rich Media',
     subPages: [
       {
@@ -50,7 +50,7 @@ export const PUBLISHERS_MENU: TMenu[] = [
   },
   {
     category: 'Display Ads',
-    collapseLabel: '𖠿',
+    collapseLabel: 'DevicePhoneMobileIcon',
     expandLabel: 'Display',
     subPages: [
       {
@@ -75,7 +75,7 @@ export const PUBLISHERS_MENU: TMenu[] = [
   },
   {
     category: 'Videos',
-    collapseLabel: '[V]',
+    collapseLabel: 'VideoCameraIcon',
     expandLabel: 'Videos',
     subPages: [
       {
@@ -110,8 +110,9 @@ export const ADVERTISERS_MENU: TMenu[] = [
 
   {
     category: 'Desktop Takeovers',
-    collapseLabel: 'DTO',
+    collapseLabel: 'ComputerDesktopicon',
     expandLabel: 'Desktop Takeovers',
+
     subCategory: [
       {
         category: 'Templates', subPages: [
@@ -243,31 +244,31 @@ export const ADVERTISERS_MENU: TMenu[] = [
   },
   {
     category: 'Mobile Takeovers',
-    collapseLabel: 'MTO',
+    collapseLabel: 'DevicePhoneMobileIcon',
     expandLabel: 'Mobile Takeovers',
     subPages: [
       {
         name: 'Standard Takeover',
         image: placeholder,
-        path: '/desktop-takeover',
+        path: '/mobile-takeover',
         pageId: 'standard-takeover',
       },
       {
         name: 'Parallax',
         image: placeholder,
-        path: '/desktop-takeover',
+        path: '/mobile-takeover',
         pageId: 'Parallax',
       },
       {
         name: 'Video Takeover',
         image: placeholder,
-        path: '/desktop-takeover',
+        path: '/mobile-takeover',
         pageId: 'video',
       },
       {
         name: 'Swiper Format',
         image: placeholder,
-        path: '/desktop-takeover',
+        path: '/mobile-takeover',
         pageId: 'swiper',
       },
     ],
@@ -307,136 +308,216 @@ export const ADVERTISERS_MENU: TMenu[] = [
 //ADVERTISERS_MENU[0].subPages = [...ADVERTISERS_MENU[2].subPages, ...ADVERTISERS_MENU[3].subPages];
 
 
-export const desktopCreative = (param: string) => {
+export const DESKTOP_CREATIVE = (param: string) => {
   const creatives = {
     'amazon': {
-      creativeName: 'Premium Amazon Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1219/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1219',
+      name: 'Premium Amazon Takeover',
+      template: 'modal-takeover',
+      id: '1219',
     },
     'animations': {
-      creativeName: 'Premium Animated Takeover',
-      src: 'https://cdn.prvk.io/studio/interstitial-template/1632/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1632',
+      name: 'Premium Animated Takeover',
+      template: 'interstitial-template',
+      id: '1632',
     },
     'deezer': {
-      creativeName: 'Premium Deezer Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1220/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1220',
+      name: 'Premium Deezer Takeover',
+      template: 'modal-takeover',
+      id: '1220',
     },
     'interstitial-animation': {
-      creativeName: 'Interstitial Visual Effects Animation Takeover',
-      src: 'https://cdn.prvk.io/studio/interstitial-template/1632/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1632',
+      name: 'Interstitial Visual Effects Animation Takeover',
+      template: 'interstitial-template',
+      id: '1632',
     },
     'interstitial-side-change-on-scroll': {
-      creativeName: 'Interstitial Side Change on Scroll Takeover',
-      src: 'https://cdn.prvk.io/studio/interstitial-template/1630/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1630',
+      name: 'Interstitial Side Change on Scroll Takeover',
+      template: 'interstitial-template',
+      id: '1630',
     },
     'interstitial-with-poll': {
-      creativeName: 'Interstitial with Poll Takeover',
-      src: 'https://cdn.prvk.io/studio/interstitial-template/1212/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1212',
+      name: 'Interstitial with Poll Takeover',
+      template: 'interstitial-template',
+      id: '1212',
     },
     microstitial: {
-      creativeName: 'Microstitial Takeover',
-      src: 'https://cdn.prvk.io/studio/interstitial-template/1612/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1612',
+      name: 'Microstitial Takeover',
+      template: 'interstitial-template',
+      id: '1612',
     },
     'premium-expandable': {
-      creativeName: 'Premium Expandable Takeover',
-      src: 'https://cdn.prvk.io/studio/AU-900301-FALLOUTFTP/1536/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1602',
+      name: 'Premium Expandable Takeover',
+      template: 'AU-900301-FALLOUTFTP',
+      id: '1602',
     },
     premium: {
-      creativeName: 'Premium Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1610/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1610',
+      name: 'Premium Takeover',
+      template: 'modal-takeover',
+      id: '1610',
     },
     'side-change-on-scroll': {
-      creativeName: 'Side Change on Scroll Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/668/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1625',
+      name: 'Side Change on Scroll Takeover',
+      template: 'modal-takeover',
+      id: '1625',
     },
     'side-change-on-expand': {
-      creativeName: 'Side Change on Expand Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover-test/396/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-396',
+      name: 'Side Change on Expand Takeover',
+      template: 'modal-takeover-test',
+      id: '396',
     },
     'sticky-video': {
-      creativeName: 'Sticky Video',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1627/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1627',
+      name: 'Sticky Video',
+      template: 'modal-takeover',
+      id: '1627',
     },
     'premium-spotify': {
-      creativeName: 'Premium Spotify Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1211/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1211',
+      name: 'Premium Spotify Takeover',
+      template: 'modal-takeover',
+      id: '1211',
     },
     'premium-twitch': {
-      creativeName: 'Premium Twitch Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1208/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1208',
+      name: 'Premium Twitch Takeover',
+      template: 'modal-takeover',
+      id: '1208',
     },
     'two-embeds': {
-      creativeName: 'Two Embeds Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/2030/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-2030',
+      name: 'Two Embeds Takeover',
+      template: 'modal-takeover',
+      id: '2030',
     },
     'video-move-to-corner-on-scroll': {
-      creativeName: 'Video Move to Corner on Scroll Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1627/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1627',
+      name: 'Video Move to Corner on Scroll Takeover',
+      template: 'modal-takeover',
+      id: '1627',
     },
     'with-floor-overlay': {
-      creativeName: 'with Floor Overlay Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1796/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1796',
+      name: 'with Floor Overlay Takeover',
+      template: 'modal-takeover',
+      id: '1796',
     },
     'premium-youtube': {
-      creativeName: 'Premium Youtube Takeover',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1221/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1221',
+      name: 'Premium Youtube Takeover',
+      template: 'modal-takeover',
+      id: '1221',
     },
     'premium-toggle': {
-      creativeName: 'Premium Toggle Takeover',
-      src: 'https://cdn.prvk.io/studio/UK-501558-PHYRXIA/1871/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1621',
+      name: 'Premium Toggle Takeover',
+      template: 'UK-501558-PHYRXIA',
+      id: '1621',
     },
     'twitch-slider': {
-      creativeName: 'Twitch Slider',
-      src: 'https://cdn.prvk.io/studio/twitch-standalone/1620/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1620',
+      name: 'Twitch Slider',
+      template: 'twitch-standalone',
+      id: '1620',
     },
     'floor-overlay-banner': {
-      creativeName: 'Floor Overlay',
-      src: 'https://cdn.prvk.io/studio/modal-takeover/1893/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1893',
+      name: 'Floor Overlay',
+      template: 'modal-takeover',
+      id: '1893',
     },
     pushdown: {
-      creativeName: 'Pushdown Takeover',
-      src: 'https://cdn.prvk.io/studio/stan-test-pushdown/1991/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-1991',
+      name: 'Pushdown Takeover',
+      template: 'stan-test-pushdown',
+      id: '1991',
     },
     carousel: {
-      creativeName: 'Carousel Takeover',
-      src: 'https://cdn.prvk.io/studio/steam-takeover/440/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-440',
+      name: 'Carousel Takeover',
+      template: 'steam-takeover',
+      id: '440',
     },
     'video-background': {
-      creativeName: 'Video Background',
-      src: 'https://cdn.prvk.io/studio/steam-takeover/441/creative.min.js?v=%%CACHEBUSTER%%',
-      id: 'vdrm-script-441',
+      name: 'Video Background',
+      template: 'steam-takeover',
+      id: '441',
     },
   };
 
   const defaultCreative = {
-    creativeName: 'Premium Expandable Takeover',
-    src: 'https://cdn.prvk.io/studio/UK_502648_RESIDENTEVIL_REQUIEM_PET/4555/creative.min.js?v=%%CACHEBUSTER%%',
-    id: 'vdrm-script-4555',
+    name: 'Premium Expandable Takeover',
+    template: 'UK_502648_RESIDENTEVIL_REQUIEM_PET',
+    id: '4555',
   };
   type CreativeKey = keyof typeof creatives
   const result = creatives[param as CreativeKey] || defaultCreative;
   return result;
 };
+
+
+export const MOBILE_CREATIVE = (param: string) => {
+  const creatives = {
+   'standard-takeover': {
+     name: 'Standard Takeover',
+     template: 'mobile-rich-media',
+     id: '1613',
+   },
+   'parallax': {
+     name: 'Parallax Takeover',
+     template: 'PG-100256-STRANGEWORLDCHILDREN',
+     id: '1703',
+   },
+   'standard': {
+     name: 'Standard Takeover',
+     template: 'mobile-rich-media',
+     id: '1615',
+   },
+   'video': {
+     name: 'Takeover',
+     template: 'mobile-rich-media',
+     id: '1616',
+   },
+   'swiper': {
+     name: 'Swiper Takeover',
+     template: 'mobile-rich-media',
+     id: '1617',
+   },
+   'flipbook': {
+     name: 'Flipbook Takeover',
+     template: 'mobile-rich-media',
+     id: '1618',
+   },
+   'image-gallery': {
+     name: 'Gallery Takeover',
+     template: 'mobile-rich-media',
+     id: '1619',
+   },
+   'youtube': {
+     name: 'Youtube Takeover',
+     template: 'mobile-rich-media',
+     id: '1633',
+   },
+   'twitch': {
+     name: 'Twitch Takeover',
+     template: 'mobile-rich-media',
+     id: '1634',
+   },
+   'playable': {
+     name: 'Playable Games Takeover',
+     template: 'mobile-rich-media',
+     id: '1635',
+   },
+   'spotify': {
+     name: 'Spotify Takeover',
+     template: 'mobile-rich-media',
+     id: '1710',
+   },
+   'amazon': {
+     name: 'Amazon Takeover',
+     template: 'mobile-rich-media',
+     id: '1711',
+   },
+   'deezer': {
+     name: 'Deezer Takeover',
+     template: 'mobile-rich-media',
+     id: '1712',
+   },
+ };
+
+  const defaultCreative = {
+    name: 'Standard Takeover',
+    template: 'mobile-rich-media',
+    id: '1613',
+  };
+  type CreativeKey = keyof typeof creatives
+  const result = creatives[param as CreativeKey] || defaultCreative;
+  return result;
+}; 
