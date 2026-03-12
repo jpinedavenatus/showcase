@@ -99,7 +99,9 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
       </head>
 
       <body class="h-full">
-        <div id="header" class="bg-neutral-400 text-xl py-2 justify-center flex align-center pt-8 shadow-md border-b-2 border-b-gray-300"> HavBar Header </div>
+        <div id="header"class=" w-full bg-sky-300 text-xl justify-center flex align-center py-8 shadow-md border-2 border-dashed rounded-lg border-b-gray-300"> 
+         HEADER 
+        </div>
         <div class="h-full overflow-y-auto pt-10 px-4 space-y-4 bg-gray-100 rounded-lg">
           <div id="content-container" class="flex justify-center">
             <div class="w-full">
@@ -116,11 +118,6 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
                     <img class="m-auto" alt="placeholder" src="${placeholder}" />
                   
 
-                  <div class="flex justify-center mb-5">
-                    <div class="w-[300px] h-[250px] bg-gray-300 flex items-center justify-center">
-                      AD MPU
-                    </div>
-                  </div>
 
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
 
@@ -133,6 +130,8 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
 
                 </main>
                 <div id="middle-placement" />
+
+                
                 <aside class="w-full text-gray-900 p-4 space-y-6 border shadow-lg">
 
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
@@ -147,7 +146,10 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
             </div>
           </div>
         </div>
-       <div id="footer" class="bg-neutral-400 text-xl py-2 justify-center flex align-center pt-8 shadow-md border-b-2 border-b-gray-300"> HavBar Header </div>
+       
+       </div>
+       <div id="footer" class=" w-full bg-sky-300 text-xl justify-center flex align-center py-8 shadow-md border-2 border-dashed rounded-lg border-b-gray-300"> 
+       FOOTER 
       </body>
     </html>
   `;
