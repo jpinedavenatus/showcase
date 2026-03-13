@@ -1,0 +1,38 @@
+<script id="prvk-creative-script-4586">
+if (window.top.location.hostname === "www.op.gg" || window.top.location.hostname === "www.lol-nextjs-stage-u2swjya6q.op.gg") {
+    var video = window.top.document.querySelector("#primisPlayer");
+    if (video) {
+        video.parentNode.removeChild(video);
+        console.log("primisPlayer found and removed");
+    }
+}
+if (typeof window.top.vdrmDestroySkin === "function") window.top.vdrmDestroySkin();
+var parentElement = document.querySelector("#prvk-creative-script-4586");
+if (parentElement && parentElement.parentNode) 
+	parentElement.parentNode.classList.add("prvk-creative-script-parent-4586");
+var nodes = document.querySelectorAll("script[id*='vdrm-script']");
+for (var i = 0; i < nodes.length; i++) {
+    nodes[i].parentNode.removeChild(nodes[i]);
+}
+window.top.prvkOverrideSettings = {
+    extraStylePath: '',
+    extraStylesForDomainPath: '',
+    websitesPath: '',
+    injectJsPath: ''
+};
+const script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "https://cdn.prvk.io/studio/KR_700935-INCROSS-LINEAGE-MAR9-MOBILE/4586/creative.min.js?v=%%CACHEBUSTER%%";
+script.id = "vdrm-script-4586";
+parent.__VM && parent.__VM.push(function (admanager, scope) {
+	window.frameElement.placement = admanager.getPlacementByWindow(self);
+});
+script.iframeElement = window.frameElement;
+script.clickTag = "%%CLICK_URL_UNESC%%%%DEST_URL_UNESC%%";
+script.li = "%eaid!";
+script.async = true;
+script.dataset.cfasync = false;
+window.top.document.body.appendChild(script);
+</script>
+
+

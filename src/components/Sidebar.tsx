@@ -31,7 +31,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
 
       {/* <div className=' ml- mt-5 flex max-h-[80vh] min-h-[70vh] overflow-y-auto overflow-x-hidden  z-[9999999] shadow-lg rounded-md fixed'> */}
       {/* Sidebar */}
-      < aside className={`fixed  left-0 z-20 flex h-screen flex-col bg-white  text-gray-900 transition-all duration-300 ease-in-out border-r border-gray-200 shadow-2xl
+      < aside className={`hidden md:flex fixed  left-0 z-20  h-screen flex-col bg-white  text-gray-900 transition-all duration-300 ease-in-out border-r border-gray-200 shadow-2xl
         ${isCollapsed ? 'w-20' : 'w-64'}`
       }
       >

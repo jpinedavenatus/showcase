@@ -22,7 +22,6 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
 
         return () => {
             creative.removeScript();
-            //   document.body.removeChild(script); // cleanup on unmount
         };
 
     }, [currentPage, setPage, location.search]);
@@ -31,10 +30,9 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
         <>
             {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
 
-
             <div id='slot-desktop-takeover' className='w-[970px] justify-center flex m-auto mt-5'></div>
 
-            <div id='content-container' className='m-auto w-full  2xl:max-w-6xl max-w-5xl  sm:w-sm px-5 flex justify-center p-4'>
+            <div id='content-container' className='m-auto w-full max-w-5xl  sm:w-sm p-5 flex justify-center bg-gray-100 mb-10'>
 
                 <div className='flex flex-col md:flex-row  gap-5  '>
                     <main

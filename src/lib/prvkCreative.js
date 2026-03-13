@@ -72,14 +72,7 @@ export class prvkCreative {
     this.#prvkScript = script;
 
     let domain = this.#forcedDomain;
-    /*     if (window.top.location.hostname.lastIndexOf('.co.') - window.top.location.hostname.length + 1 === -5) {
-      domain = window.top.location.hostname.split('.').slice(-3).join('.');
-    } else if (window.top.location.hostname.lastIndexOf('.com.') - window.top.location.hostname.length + 1 === -6) {
-      domain = window.top.location.hostname.split('.').slice(-3).join('.');
-    } else {
-      domain = window.top.location.hostname.split('.').slice(-2).join('.');
-    } */
-
+ 
     const websitesPath =
       window.top.prvkOverrideSettings &&
       window.top.prvkOverrideSettings.websitesPath &&
@@ -138,6 +131,6 @@ export class prvkCreative {
     script.li = '%eaid!';
     script.async = true;
     script.dataset.cfasync = false;
-    window.top.document.body.appendChild(script);
+    document.body.appendChild(script);
   }
 }

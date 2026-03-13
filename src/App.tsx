@@ -15,6 +15,7 @@ import MobileView from './Pages/MobileView';
 import CategoryPage from './Pages/CategoryPage';
 import PrerollVideo from './Pages/PrerollVideo';
 import MobileTakeover from './Pages/MobileTakeover';
+import TestPage from './Pages/TestPage';
 const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
@@ -59,6 +60,7 @@ const App = () => {
 
 
             <Route path='/preroll-video' element={<PrerollVideo />} />
+            <Route path='/testpage' element={<TestPage currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
           </Routes>
         </div>
 

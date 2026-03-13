@@ -24,10 +24,6 @@ const navigation: tNavBar[] = [
     current: false,
   },
   {
-    name: 'Sandbox',
-    path: '/sandbox-demo',
-    current: false,
-  }, {
     name: 'Contacts ',
     path: 'https://www.venatus.com/contact',
     current: false,

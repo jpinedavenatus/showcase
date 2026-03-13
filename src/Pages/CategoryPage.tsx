@@ -79,14 +79,17 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
       </div>
 
       <div className='absolute inset-0 items-center text-center justify-center bg-gray-800 opacity-0 group-hover:opacity-100 transition flex p-2 border-4 border-white shadow-xl'>
-        <span className='text-white text-3xl border-white border-4 py-2 px-5'>{name}</span>
+        <div className='text-white  border-white border-4 p-1 w-full h-full flex justify-center align-center'>
+          <span className='text-3xl self-center'>{name}</span>
+        </div>
+
       </div>
     </Link>
   )
 
   return (
     <>
-      <div className='max-w-6xl mx-auto space-y-3 mb-5 mt-10'>
+      <div className='max-w-6xl mx-auto space-y-3 mb-5 mt-10 px-5'>
         {/* Header */}
         {pageHeader && <h1 className='flex font-semi text-4xl justify-center'>{pageHeader}</h1>}
         {categoriesMenu.map((item, index) => {
