@@ -29,7 +29,7 @@ const DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placeme
       break;
 
     case 'mobile-regular-ads':
-      supportedPlacements = ['mpu'];
+      supportedPlacements = ['mpu', 'mobile_banner', 'double_mpu'];
       break;
     default:
       console.log('DisplayAds: page not found to set supportedPlacements!', page);

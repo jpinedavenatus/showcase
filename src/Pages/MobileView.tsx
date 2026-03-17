@@ -5,6 +5,7 @@ import Ad from '../modules/Ad';
 import { IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import DisplayAds from '../modules/DisplayAd';
 
 const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
   const location = useLocation();
@@ -51,15 +52,17 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
                       <TextFiller />
                       <img className="m-auto" alt="placeholder" src={placeholder} />
                       <div className="flex justify-center mb-5">
-                        <Ad placementName="mpu" />
+                        <DisplayAds placementName="mpu" page={currentPage} />
                       </div>
                       <TextFiller />
+                      <DisplayAds placementName="mobile_banner" page={currentPage} />
                       <img className="m-auto" alt="placeholder" src={placeholder} />
                       <TextFiller lines={5} />
                       <TextFiller lines={20} />
                     </main>
                     <aside className="w-full  text-gray-900 p-4 space-y-10  border shadow-lg roundwd-sm">
                       <TextFiller lines={4} />
+                      <DisplayAds placementName="double_mpu" page={currentPage} />
                       <img alt="placeholder" src={placeholder} />
                       <TextFiller />
                     </aside>
