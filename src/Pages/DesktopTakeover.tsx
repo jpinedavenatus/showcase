@@ -1,73 +1,74 @@
 import { FC, useEffect } from 'react';
 import placeholder from '../images/img.jpg';
-import { TextFiller } from '../components/utils';
+import { TextFiller } from '../components/DisplayUtils';
 import { E_DEVICE_TYPE, IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
 
-
 const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
-    const location = useLocation();
-    useEffect(() => {
-        if (currentPage == '') {
-            const params = new URLSearchParams(location.search);
+  const location = useLocation();
+  useEffect(() => {
+    if (currentPage == '') {
+      const params = new URLSearchParams(location.search);
 
-            const pageId = params.get('pageId');
-            if (pageId != null) {
-                setPage(pageId);
-            }
-        }
+      const pageId = params.get('pageId');
+      if (pageId != null) {
+        setPage(pageId);
+      }
+    }
 
-        const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP })
+    const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP });
 
-        return () => {
-            creative.removeScript();
-        };
+    return () => {
+      creative.removeScript();
+    };
+  }, [currentPage, setPage, location.search]);
 
-    }, [currentPage, setPage, location.search]);
+  return (
+    <>
+      {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
 
-    return (
-        <>
-            {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
+      <div id="slot-desktop-takeover" className="w-[970px] justify-center flex m-auto mt-5"></div>
 
-            <div id='slot-desktop-takeover' className='w-[970px] justify-center flex m-auto mt-5'></div>
+      <div
+        id="content-container"
+        className="m-auto w-full max-w-5xl  sm:w-sm p-5 flex justify-center bg-gray-100 mb-10"
+      >
+        <div className="flex flex-col md:flex-row  gap-5  ">
+          <main
+            id="article-body"
+            className="w-full md:w-3/4 p-6 space-y-2  bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm"
+          >
+            <h1 className="font-semibold text-2xl">
+              <span className="text-venatusred font-bold uppercase">
+                {currentPage && currentPage.replace('-', ' ')}
+              </span>{' '}
+              TAKEOVER
+            </h1>
 
-            <div id='content-container' className='m-auto w-full max-w-5xl  sm:w-sm p-5 flex justify-center bg-gray-100 mb-10'>
+            <TextFiller />
 
-                <div className='flex flex-col md:flex-row  gap-5  '>
-                    <main
-                        id='article-body'
-                        className='w-full md:w-3/4 p-6 space-y-2  bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm'
-                    >
+            <img className="m-auto" alt="placeholder" src={placeholder} />
+            <TextFiller />
+            <img className="m-auto" alt="placeholder" src={placeholder} />
+            <TextFiller lines={5} />
+            <TextFiller lines={20} />
+          </main>
 
-                        <h1 className='font-semibold text-2xl'>{currentPage && currentPage.replace('-', ' ').toUpperCase()}</h1>
+          <aside className="w-full md:w-1/3 bg-gray-100 text-gray-900 p-4 space-y-10  border shadow-lg roundwd-sm">
+            <TextFiller lines={4} />
+            <img alt="placeholder" src={placeholder} />
 
-                        <TextFiller />
-
-                        <img className='m-auto' alt='placeholder' src={placeholder} />
-                        <TextFiller />
-                        <img className='m-auto' alt='placeholder' src={placeholder} />
-                        <TextFiller lines={5} />
-                        <TextFiller lines={20} />
-                    </main>
-
-                    <aside className='w-full md:w-1/3 bg-gray-100 text-gray-900 p-4 space-y-10  border shadow-lg roundwd-sm'>
-                        <TextFiller lines={4} />
-                        <img alt='placeholder' src={placeholder} />
-
-                        <TextFiller />
-                        <img alt='placeholder' src={placeholder} />
-                        <TextFiller lines={5} />
-                        <img alt='placeholder' src={placeholder} />
-                        <TextFiller lines={15} />
-                    </aside>
-                </div>
-            </div>
-
-
-
-        </>
-    );
+            <TextFiller />
+            <img alt="placeholder" src={placeholder} />
+            <TextFiller lines={5} />
+            <img alt="placeholder" src={placeholder} />
+            <TextFiller lines={15} />
+          </aside>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default DesktopTakeover;

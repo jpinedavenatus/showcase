@@ -9,18 +9,18 @@ import Footer from './components/Footer';
 import Sandbox from './Pages/Sandbox';
 import DesktopTakeover from './Pages/DesktopTakeover';
 
-import ProsperNewSession from "./modules/ProsperNewSession";
+import ProsperNewSession from './modules/ProsperNewSession';
 import DesktopView from './Pages/DesktopView';
 import MobileView from './Pages/MobileView';
 import CategoryPage from './Pages/CategoryPage';
 import PrerollVideo from './Pages/PrerollVideo';
 import MobileTakeover from './Pages/MobileTakeover';
 import TestPage from './Pages/TestPage';
+import RewardVideo from './Pages/RewardVideo';
 const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
   useEffect(() => {
-    console.log('dsgsgsdgsdg')
     WebFont.load({
       google: {
         families: ['Outfit:400,500,600,700,800,900'],
@@ -40,27 +40,61 @@ const App = () => {
         {/* <div className="flex flex-1"> */}
         {/* Sidebar */}
 
-
         {/* Page Content */}
         {/* <div className="flex-1 p-4"> */}
-        <div id='wrapper' className='flex-1 mt-[70px]' >
+        <div id="wrapper" className="flex-1 mt-[70px]">
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
 
-            <Route path='/publisher' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Publisher' />} />
-            <Route path='/advertiser' element={<CategoryPage currentPage={currentPage} setPage={setPage} setPageHeader={setPageHeader} pageHeader='Advertiser' />} />
-            <Route path='/sandbox-demo' element={<Sandbox />} />
+            <Route
+              path="/publisher"
+              element={
+                <CategoryPage
+                  currentPage={currentPage}
+                  setPage={setPage}
+                  setPageHeader={setPageHeader}
+                  pageHeader="Publisher"
+                />
+              }
+            />
+            <Route
+              path="/advertiser"
+              element={
+                <CategoryPage
+                  currentPage={currentPage}
+                  setPage={setPage}
+                  setPageHeader={setPageHeader}
+                  pageHeader="Advertiser"
+                />
+              }
+            />
+            <Route path="/sandbox-demo" element={<Sandbox />} />
             {/* subpages */}
-            <Route path='/desktop-takeover' element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-            <Route path='/mobile-takeover' element={<MobileTakeover currentPage={currentPage} setPage={setPage} />} />
+            <Route
+              path="/desktop-takeover"
+              element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+            />
+            <Route
+              path="/mobile-takeover"
+              element={<MobileTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+            />
 
-            <Route path='/desktop-view' element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-            <Route path='/mobile-view' element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route
+              path="/desktop-view"
+              element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+            />
+            <Route
+              path="/mobile-view"
+              element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+            />
 
-
-            <Route path='/preroll-video' element={<PrerollVideo />} />
-            <Route path='/testpage' element={<TestPage currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route path="/preroll-video" element={<PrerollVideo />} />
+            <Route path="/reward-video" element={<RewardVideo />} />
+            <Route
+              path="/testpage"
+              element={<TestPage currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+            />
           </Routes>
         </div>
 
@@ -68,13 +102,11 @@ const App = () => {
         {/* </div> */}
 
         {/* Footer at the bottom */}
-
       </BrowserRouter>
 
       {/* </main> */}
       <Footer />
     </>
-
   );
 };
 

@@ -1,9 +1,9 @@
-import Ad from "./Ad";
+import Ad from './Ad';
 import { FC } from 'react';
-const  DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placementName }) => {
+const DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placementName }) => {
   //return 'desktop takeover'
 
- let supportedPlacements = [''];
+  let supportedPlacements = [''];
   switch (page) {
     case 'vertical-sticky':
       supportedPlacements = ['vertical_sticky'];
@@ -12,7 +12,7 @@ const  DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placem
       supportedPlacements = ['horizontal_sticky'];
       break;
 
-     case 'mobile-horizontal-sticky':
+    case 'mobile-horizontal-sticky':
       supportedPlacements = ['mobile_horizontal_sticky'];
       break;
 
@@ -37,8 +37,18 @@ const  DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placem
   }
   if (!supportedPlacements.includes(placementName)) return <></>;
   else {
-    if (placementName == 'pvp_video') return <div className="flex justify-center align-middle h-[200px]"><Ad placementName={placementName} /></div>;
-    else return <div className="flex justify-center align-middle"><Ad placementName={placementName} /></div>;
+    if (placementName == 'pvp_video')
+      return (
+        <div className="flex justify-center align-middle h-[200px]">
+          <Ad placementName={placementName} />
+        </div>
+      );
+    else
+      return (
+        <div className="flex justify-center align-middle">
+          <Ad placementName={placementName} />
+        </div>
+      );
   }
 };
 export default DisplayAds;

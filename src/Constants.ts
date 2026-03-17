@@ -93,21 +93,20 @@ export const PUBLISHERS_MENU: TMenu[] = [
       {
         name: 'Reward Video',
         image: placeholder,
-        path: '/desktop-view',
-        pageId: 'reward-video',
+        path: '/reward-video',
+        pageId: '',
       },
       {
         name: 'Preroll Video',
         image: placeholder,
         path: '/preroll-video',
-        pageId: 'prerol-video',
+        pageId: '',
       },
     ],
   },
 ];
 
 export const ADVERTISERS_MENU: TMenu[] = [
-
   {
     category: 'Desktop Takeovers',
     collapseLabel: 'ComputerDesktopicon',
@@ -115,7 +114,8 @@ export const ADVERTISERS_MENU: TMenu[] = [
 
     subCategory: [
       {
-        category: 'Templates', subPages: [
+        category: 'Templates',
+        subPages: [
           {
             name: 'Premium Modal',
             image: placeholder,
@@ -157,11 +157,12 @@ export const ADVERTISERS_MENU: TMenu[] = [
             image: placeholder,
             path: '/desktop-takeover',
             pageId: 'floor-overlay-banner',
-          }
-        ]
+          },
+        ],
       },
       {
-        category: 'Features', subPages: [
+        category: 'Features',
+        subPages: [
           {
             name: 'Video Background',
             image: placeholder,
@@ -204,10 +205,11 @@ export const ADVERTISERS_MENU: TMenu[] = [
             path: '/desktop-takeover',
             pageId: 'animations',
           },
-        ]
+        ],
       },
       {
-        category: 'Embeds', subPages: [
+        category: 'Embeds',
+        subPages: [
           {
             name: 'Twitch',
             image: placeholder,
@@ -237,45 +239,104 @@ export const ADVERTISERS_MENU: TMenu[] = [
             image: placeholder,
             path: '/desktop-takeover',
             pageId: 'premium-youtube',
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
   },
   {
     category: 'Mobile Takeovers',
     collapseLabel: 'DevicePhoneMobileIcon',
     expandLabel: 'Mobile Takeovers',
-    subPages: [
+    subCategory: [
       {
-        name: 'Standard Takeover',
-        image: placeholder,
-        path: '/mobile-takeover',
-        pageId: 'standard-takeover',
+        category: 'Templates',
+        subPages: [
+          {
+            name: 'Standard Takeover',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'standard-takeover',
+          },
+          {
+            name: 'Parallax',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'Parallax',
+          },
+          {
+            name: 'Video Takeover',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'video',
+          },
+          {
+            name: 'Swiper Format',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'swiper',
+          },
+          {
+            name: 'Flipbook',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'flipbook',
+          },
+          {
+            name: 'Gallery',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'image-gallery',
+          },
+        ],
       },
+
       {
-        name: 'Parallax',
-        image: placeholder,
-        path: '/mobile-takeover',
-        pageId: 'Parallax',
-      },
-      {
-        name: 'Video Takeover',
-        image: placeholder,
-        path: '/mobile-takeover',
-        pageId: 'video',
-      },
-      {
-        name: 'Swiper Format',
-        image: placeholder,
-        path: '/mobile-takeover',
-        pageId: 'swiper',
+        category: 'Embeds',
+        subPages: [
+          {
+            name: 'Twitch',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'twitch',
+          },
+          {
+            name: 'Spotify',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'spotify',
+          },
+          {
+            name: 'Amazon',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'amazon',
+          },
+          {
+            name: 'Deezer',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'deezer',
+          },
+          {
+            name: 'Youtube',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'youtube',
+          },
+          {
+            name: 'Playable Games',
+            image: placeholder,
+            path: '/mobile-takeover',
+            pageId: 'playable',
+          },
+        ],
       },
     ],
   },
   {
     category: 'Videos',
-    collapseLabel: '[V]',
+    collapseLabel: 'VideoCameraIcon',
     expandLabel: 'Videos',
     subPages: [
       {
@@ -290,23 +351,10 @@ export const ADVERTISERS_MENU: TMenu[] = [
         path: '/desktop-view',
         pageId: 'video-slider',
       },
-      {
-        name: 'Reward Video',
-        image: placeholder,
-        path: '/desktop-view',
-        pageId: 'reward-video',
-      },
-      {
-        name: 'Preroll Video',
-        image: placeholder,
-        path: '/preroll-video',
-        pageId: 'prerol-video',
-      },
     ],
   },
 ];
 //ADVERTISERS_MENU[0].subPages = [...ADVERTISERS_MENU[2].subPages, ...ADVERTISERS_MENU[3].subPages];
-
 
 export const DESKTOP_CREATIVE = (param: string) => {
   const creatives = {
@@ -340,7 +388,7 @@ export const DESKTOP_CREATIVE = (param: string) => {
       template: 'interstitial-template',
       id: '1212',
     },
-    microstitial: {
+    'microstitial': {
       name: 'Microstitial Takeover',
       template: 'interstitial-template',
       id: '1612',
@@ -350,7 +398,7 @@ export const DESKTOP_CREATIVE = (param: string) => {
       template: 'AU-900301-FALLOUTFTP',
       id: '1602',
     },
-    premium: {
+    'premium': {
       name: 'Premium Takeover',
       template: 'modal-takeover',
       id: '1610',
@@ -415,12 +463,12 @@ export const DESKTOP_CREATIVE = (param: string) => {
       template: 'modal-takeover',
       id: '1893',
     },
-    pushdown: {
+    'pushdown': {
       name: 'Pushdown Takeover',
       template: 'stan-test-pushdown',
       id: '1991',
     },
-    carousel: {
+    'carousel': {
       name: 'Carousel Takeover',
       template: 'steam-takeover',
       id: '440',
@@ -437,87 +485,86 @@ export const DESKTOP_CREATIVE = (param: string) => {
     template: 'UK_502648_RESIDENTEVIL_REQUIEM_PET',
     id: '4555',
   };
-  type CreativeKey = keyof typeof creatives
+  type CreativeKey = keyof typeof creatives;
   const result = creatives[param as CreativeKey] || defaultCreative;
   return result;
 };
 
-
 export const MOBILE_CREATIVE = (param: string) => {
   const creatives = {
-   'standard-takeover': {
-     name: 'Standard Takeover',
-     template: 'mobile-rich-media',
-     id: '1613',
-   },
-   'parallax': {
-     name: 'Parallax Takeover',
-     template: 'PG-100256-STRANGEWORLDCHILDREN',
-     id: '1703',
-   },
-   'standard': {
-     name: 'Standard Takeover',
-     template: 'mobile-rich-media',
-     id: '1615',
-   },
-   'video': {
-     name: 'Takeover',
-     template: 'mobile-rich-media',
-     id: '1616',
-   },
-   'swiper': {
-     name: 'Swiper Takeover',
-     template: 'mobile-rich-media',
-     id: '1617',
-   },
-   'flipbook': {
-     name: 'Flipbook Takeover',
-     template: 'mobile-rich-media',
-     id: '1618',
-   },
-   'image-gallery': {
-     name: 'Gallery Takeover',
-     template: 'mobile-rich-media',
-     id: '1619',
-   },
-   'youtube': {
-     name: 'Youtube Takeover',
-     template: 'mobile-rich-media',
-     id: '1633',
-   },
-   'twitch': {
-     name: 'Twitch Takeover',
-     template: 'mobile-rich-media',
-     id: '1634',
-   },
-   'playable': {
-     name: 'Playable Games Takeover',
-     template: 'mobile-rich-media',
-     id: '1635',
-   },
-   'spotify': {
-     name: 'Spotify Takeover',
-     template: 'mobile-rich-media',
-     id: '1710',
-   },
-   'amazon': {
-     name: 'Amazon Takeover',
-     template: 'mobile-rich-media',
-     id: '1711',
-   },
-   'deezer': {
-     name: 'Deezer Takeover',
-     template: 'mobile-rich-media',
-     id: '1712',
-   },
- };
+    'standard-takeover': {
+      name: 'Standard Takeover',
+      template: 'mobile-rich-media',
+      id: '1613',
+    },
+    'parallax': {
+      name: 'Parallax Takeover',
+      template: 'PG-100256-STRANGEWORLDCHILDREN',
+      id: '1703',
+    },
+    'standard': {
+      name: 'Standard Takeover',
+      template: 'mobile-rich-media',
+      id: '1615',
+    },
+    'video': {
+      name: 'Takeover',
+      template: 'mobile-rich-media',
+      id: '1616',
+    },
+    'swiper': {
+      name: 'Swiper Takeover',
+      template: 'mobile-rich-media',
+      id: '1617',
+    },
+    'flipbook': {
+      name: 'Flipbook Takeover',
+      template: 'mobile-rich-media',
+      id: '1618',
+    },
+    'image-gallery': {
+      name: 'Gallery Takeover',
+      template: 'mobile-rich-media',
+      id: '1619',
+    },
+    'youtube': {
+      name: 'Youtube Takeover',
+      template: 'mobile-rich-media',
+      id: '1633',
+    },
+    'twitch': {
+      name: 'Twitch Takeover',
+      template: 'mobile-rich-media',
+      id: '1634',
+    },
+    'playable': {
+      name: 'Playable Games Takeover',
+      template: 'mobile-rich-media',
+      id: '1635',
+    },
+    'spotify': {
+      name: 'Spotify Takeover',
+      template: 'mobile-rich-media',
+      id: '1710',
+    },
+    'amazon': {
+      name: 'Amazon Takeover',
+      template: 'mobile-rich-media',
+      id: '1711',
+    },
+    'deezer': {
+      name: 'Deezer Takeover',
+      template: 'mobile-rich-media',
+      id: '1712',
+    },
+  };
 
   const defaultCreative = {
     name: 'Standard Takeover',
     template: 'mobile-rich-media',
     id: '1613',
   };
-  type CreativeKey = keyof typeof creatives
+  type CreativeKey = keyof typeof creatives;
   const result = creatives[param as CreativeKey] || defaultCreative;
   return result;
-}; 
+};

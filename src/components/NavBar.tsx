@@ -27,7 +27,8 @@ const navigation: tNavBar[] = [
     name: 'Contacts ',
     path: 'https://www.venatus.com/contact',
     current: false,
-  }, {
+  },
+  {
     name: 'Specs ',
     path: 'https://docs.google.com/presentation/d/1Agilje40iN6MZVAtq6t-9yEyoAxRsTiYZDPwdhm6UwA/edit#slide=id.gb77e77b0e4_0_41',
     current: false,
@@ -47,16 +48,20 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
 
   return (
     <>
-      <Disclosure as='nav' className='bg-white shadow-lg border-b-gray-300  fixed w-screen z-20 py-4 md:py-0' id='header'>
-        <div className=' flex flex-wrap items-center justify-content mx-auto '>
-          <div className='flex w-full  px-6 '>
-            <div className='flex items-center  justify-between w-full '>
-              <div className='shrink-2 overflow-hidden  flex-start'>
-                <img alt='Venatus' src={logo} className='w-36 lg:w-36' />
+      <Disclosure
+        as="nav"
+        className="bg-white shadow-lg border-b-gray-300  fixed w-screen z-20 py-4 md:py-0"
+        id="header"
+      >
+        <div className=" flex flex-wrap items-center justify-content mx-auto ">
+          <div className="flex w-full  px-6 ">
+            <div className="flex items-center  justify-between w-full ">
+              <div className="shrink-2 overflow-hidden  flex-start">
+                <img alt="Venatus" src={logo} className="w-36 lg:w-36" />
               </div>
 
-              <div className='hidden md:block'>
-                <div className='flex items-baseline'>
+              <div className="hidden md:block">
+                <div className="flex items-baseline">
                   {navigation.map((tab) => (
                     <Link
                       key={tab.name}
@@ -66,7 +71,7 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
                         setPage('');
                       }}
                       aria-current={tab.current ? 'page' : undefined}
-                      className={` px-3 text-lg font-medium py-5 
+                      className={`px-4 text-lg font-medium py-5 
                         ${activePath === tab.path ? 'text-venatusred' : 'text-slate-950  hover:text-venatusred'} 
                         `}
                     >
@@ -77,20 +82,20 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
               </div>
             </div>
 
-            <div className='-mr-2 flex md:hidden'>
+            <div className="-mr-2 flex md:hidden">
               {/* Mobile menu button */}
-              <DisclosureButton className='group relative inline-flex tabs-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-700 hover:text-white  focus:outline-none focus:ring-2 focus:ring-gray-200 '>
-                <span className='absolute -inset-0.5' />
-                <span className='sr-only'>Open main menu</span>
-                <Bars3Icon aria-hidden='true' className='block size-6 group-data-[open]:hidden' />
-                <XMarkIcon aria-hidden='true' className='hidden size-6 group-data-[open]:block' />
+              <DisclosureButton className="group relative inline-flex tabs-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-700 hover:text-white  focus:outline-none focus:ring-2 focus:ring-gray-200 ">
+                <span className="absolute -inset-0.5" />
+                <span className="sr-only">Open main menu</span>
+                <Bars3Icon aria-hidden="true" className="block size-6 group-data-[open]:hidden" />
+                <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-[open]:block" />
               </DisclosureButton>
             </div>
           </div>
         </div>
 
-        <DisclosurePanel className='md:hidden'>
-          <div className='space-y-1 px-2 pb-3 pt-2 sm:px-3 '>
+        <DisclosurePanel className="md:hidden">
+          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 ">
             {navigation.map((tab) => (
               <Link
                 key={tab.name}

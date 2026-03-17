@@ -10,7 +10,7 @@ export class prvkCreative {
 
   constructor(props) {
     //  this.#prvkScript = null;
-    console.log('props', props.creativeName);
+    console.log('props', props.creativeName, props.device);
 
     this.#forcedDomain = 'localhost';
     this.#prvkData = this.#getCreativeData(props);
@@ -72,7 +72,7 @@ export class prvkCreative {
     this.#prvkScript = script;
 
     let domain = this.#forcedDomain;
- 
+
     const websitesPath =
       window.top.prvkOverrideSettings &&
       window.top.prvkOverrideSettings.websitesPath &&
@@ -99,6 +99,7 @@ export class prvkCreative {
   }
 
   #initMobile() {
+    console.log('this.#fullSrcPath:', this.#fullSrcPath);
     if (typeof window.top.vdrmDestroySkin === 'function') window.top.vdrmDestroySkin();
     var parentElement = document.querySelector(`#prvk-creative-script-${this.#prvkData.id}`);
     if (parentElement && parentElement.parentNode)

@@ -8,7 +8,7 @@ import placeholder from '../images/img.jpg';
 */
 const Thumbnail = () => (
   <div
-    className='
+    className="
   w-[300px]
   flex flex-col items-center
   p-4
@@ -23,14 +23,14 @@ const Thumbnail = () => (
   text-white
   hover:from-red-500
   hover:to-red-800
-'
+"
   >
-    <a href='#'>
-      <img className='m-auto md:w-[100px] md:h= rounded-md' alt='placeholder' src={placeholder} />
+    <a href="#">
+      <img className="m-auto md:w-[100px] md:h= rounded-md" alt="placeholder" src={placeholder} />
 
-      <div className='flex justify-center pt-2'>
-        <div className='text-center  gap-2'>
-          <h5 className='text-1xl font-bold'>test</h5>
+      <div className="flex justify-center pt-2">
+        <div className="text-center  gap-2">
+          <h5 className="text-1xl font-bold">test</h5>
         </div>
       </div>
     </a>
@@ -43,8 +43,7 @@ const Thumbnail = () => (
   title: string;
 } */
 const Sandbox: FC = () => {
-
-/*   const thumbnails: ThumbnailItem[] = [
+  /*   const thumbnails: ThumbnailItem[] = [
     {
       id: 1,
       image: "https://picsum.photos/600/400?1",
@@ -62,14 +61,14 @@ const Sandbox: FC = () => {
     }] */
 
   return (
-    <div id='wrapper'>
-      <div className='m-auto flex w-full'>
-        <h1 className='text-4xl font-bold mx-auto'>Sandbox Demos</h1>
+    <div id="wrapper">
+      <div className="m-auto flex w-full">
+        <h1 className="text-4xl font-bold mx-auto">Sandbox Demos</h1>
       </div>
 
-      <div className='flex justify-center p-4'>
-        <div id='content-container' className='w-full max-w-6xl sm:w-sm flex justify-center'>
-          <div className='flex flex-wrap gap-2 justify-center items-center max-w-[940px]'>
+      <div className="flex justify-center p-4">
+        <div id="content-container" className="w-full max-w-6xl sm:w-sm flex justify-center">
+          <div className="flex flex-wrap gap-2 justify-center items-center max-w-[940px]">
             <Thumbnail />
             <Thumbnail />
             <Thumbnail />
