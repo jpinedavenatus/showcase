@@ -43,9 +43,11 @@ const DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placeme
           <Ad placementName={placementName} />
         </div>
       );
+    else if (placementName == 'vertical_sticky' || placementName == 'horizontal_sticky')
+      return <Ad placementName={placementName} />
     else
       return (
-        <div className="flex justify-center align-middle">
+        <div className="flex justify-center align-middle border-dashed border-2 border-gray-600">
           <Ad placementName={placementName} />
         </div>
       );

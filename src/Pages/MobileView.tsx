@@ -1,13 +1,12 @@
 import { FC, useEffect } from 'react';
 import placeholder from '../images/img.jpg';
 import { TextFiller } from '../components/DisplayUtils';
-import Ad from '../modules/Ad';
 import { IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import DisplayAds from '../modules/DisplayAd';
 
-const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
+const MobileView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -21,9 +20,9 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage }) => {
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} />
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
 
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center mt-10">
         {/* <!-- Phone body --> */}
         <div className="relative w-[390px] h-[780px] bg-black rounded-[3rem] p-3 shadow-2xl">
           {/* <!-- Side buttons --> */}

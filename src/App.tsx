@@ -17,6 +17,7 @@ import PrerollVideo from './Pages/PrerollVideo';
 import MobileTakeover from './Pages/MobileTakeover';
 import TestPage from './Pages/TestPage';
 import RewardVideo from './Pages/RewardVideo';
+import DesktopInterstitial from './Pages/DesktopInterstitial';
 const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
@@ -35,13 +36,6 @@ const App = () => {
       <BrowserRouter>
         {/* Navbar at the top */}
         <NavBar setPage={setPage} />
-
-        {/* Main content area with sidebar */}
-        {/* <div className="flex flex-1"> */}
-        {/* Sidebar */}
-
-        {/* Page Content */}
-        {/* <div className="flex-1 p-4"> */}
         <div id="wrapper" className="flex-1 mt-[70px]">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -79,7 +73,6 @@ const App = () => {
               path="/mobile-takeover"
               element={<MobileTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
             />
-
             <Route
               path="/desktop-view"
               element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
@@ -91,6 +84,8 @@ const App = () => {
 
             <Route path="/preroll-video" element={<PrerollVideo />} />
             <Route path="/reward-video" element={<RewardVideo />} />
+            <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+
             <Route
               path="/testpage"
               element={<TestPage currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}

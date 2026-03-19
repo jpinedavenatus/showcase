@@ -2,9 +2,10 @@ import { FC, useEffect } from 'react';
 import placeholder from '../images/img.jpg';
 import { TextFiller } from '../components/DisplayUtils';
 import { IPageProps } from '../types';
-import Sidebar from '../components/Sidebar';
+
 import { useLocation } from 'react-router-dom';
 import DisplayAds from '../modules/DisplayAd';
+import Sidebar from '../components/Sidebar';
 
 const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const location = useLocation();

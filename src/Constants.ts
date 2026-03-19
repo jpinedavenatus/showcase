@@ -68,8 +68,8 @@ export const PUBLISHERS_MENU: TMenu[] = [
       {
         name: 'Desktop Interstitial',
         image: placeholder,
-        path: '/desktop-view',
-        pageId: 'desktop-interstitial',
+        path: '/desktop-interstitial',
+        pageId: '',
       },
     ],
   },
