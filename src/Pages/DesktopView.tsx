@@ -21,7 +21,7 @@ const DesktopView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
       <div className="flex justify-center p-4 mt-50">
         <DisplayAds placementName="vertical_sticky" page={currentPage} />
         <DisplayAds placementName="horizontal_sticky" page={currentPage} />

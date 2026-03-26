@@ -4,7 +4,7 @@ import { AdProps } from '../types';
 const Ad: FC<AdProps> = ({ placementName, alias }) => {
   const elRef = useRef(null);
   const isHSorVideoSlider = () => {
-    const validPlacements = ['horizontal_sticky', 'mobile_horizontal_sticky', 'video_slider', 'pvp_video_slider'];
+    const validPlacements = ['horizontal_sticky', 'video_slider', 'pvp_video_slider'];
     return validPlacements.includes(placementName);
   };
 

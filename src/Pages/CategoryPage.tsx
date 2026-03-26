@@ -62,6 +62,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
       to={pageId == '' ? `${path}` : `${path}?pageId=${pageId}`}
       className="relative w-full aspect-square overflow-hidden  group block"
       onClick={() => {
+        console.log('pageId >>>>>>>>>>>>>>', pageId)
         setPage(pageId);
       }}
     >

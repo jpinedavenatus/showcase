@@ -43,7 +43,7 @@ export const PUBLISHERS_MENU: TMenu[] = [
       {
         name: 'Mobile Horizontal Sticky',
         image: placeholder,
-        path: '/desktop-view',
+        path: '/mobile-view',
         pageId: 'mobile-horizontal-sticky',
       },
     ],

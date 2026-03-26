@@ -1,13 +1,7 @@
 import { FC, useEffect, useRef } from 'react';
-// import placeholder from '../images/img.jpg';
-// import { TextFiller } from '../components/utils';
-// import placeholder from '../images/img.jpg';
 import { IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
-//import { prvkCreative } from '../lib/prvkCreative';
 import Sidebar from '../components/Sidebar';
-/* import { TextFiller } from '../components/utils';
-import ReactDOMServer from 'react-dom/server'; */
 
 const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -25,28 +19,11 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
     const iframe = iframeRef.current;
     if (!iframe) return;
 
-    /*     const handleLoad = () => {
-      const iframeWindow = iframe.contentWindow;
-      if (!iframeWindow) return;
-
-      // inject class
-      //iframeWindow.prvkCreative = prvkCreative;
-
-      // trigger event AFTER listener exists
-     iframeWindow.dispatchEvent(new Event('prvk-ready'));
-    }; */
-
-    //iframe.addEventListener('load', handleLoad);
-
-    return () => {
-      //iframe.removeEventListener('load', handleLoad);
-      //  creative.removeScript();
-      //   document.body.removeChild(script); // cleanup on unmount
-    };
+    return () => {};
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
+       <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
 
       <div className="flex justify-center items-center mt-10">
         {/* Phone body */}

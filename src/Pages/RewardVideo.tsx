@@ -1,5 +1,7 @@
 import { FC, useEffect, useState, useRef, useCallback } from 'react';
 import { TextFiller } from '../components/DisplayUtils';
+import { IPageProps } from '../types';
+import Sidebar from '../components/Sidebar';
 
 // --- Constants ---
 const SCALE = 20;
@@ -10,7 +12,7 @@ interface Point {
   y: number;
 }
 
-const RewardVideo: FC = () => {
+const RewardVideo: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   // Game Refs
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const gameInterval = useRef<number | null>(null);
@@ -159,11 +161,11 @@ const RewardVideo: FC = () => {
     // Draw
     const ctx = canvas.getContext('2d');
     if (ctx) {
-      ctx.fillStyle = '#3F7D58';
+      ctx.fillStyle = '#14532d';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#88304E';
       drawRoundedRect(ctx, food.current.x, food.current.y, 10);
-      ctx.fillStyle = '#222831';
+      ctx.fillStyle = '#8D643A';
       tail.current.forEach((t) => drawRoundedRect(ctx, t.x, t.y, 5));
       drawRoundedRect(ctx, snakePos.current.x, snakePos.current.y, 5);
     }
@@ -197,6 +199,7 @@ const RewardVideo: FC = () => {
 
   return (
     <>
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
       <div id="content-container" className="flex justify-center p-4 mt-5">
         <div className="w-full max-w-6xl sm:w-sm md:m-h-[250]">
           <div className="flex flex-col md:flex-row gap-5">
@@ -220,7 +223,7 @@ const RewardVideo: FC = () => {
               >
                 <canvas ref={canvasRef} width={680} height={500} className="rounded-md p-2 w-full h-full block" />
                 {initialLoad && (
-                  <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white p-6 text-center z-10">
+                  <div className="absolute inset-0 bg-green-900 flex flex-col items-center justify-center text-white p-6 m-2 text-center z-10">
                     <h2 className="text-3xl font-bold mb-2">Classic Snake Game</h2>
                     <div className="flex flex-col gap-3 w-64">
                       <button
@@ -235,7 +238,7 @@ const RewardVideo: FC = () => {
 
                 {/* Game Over Overlay */}
                 {gameOver && (
-                  <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white p-6 text-center z-10">
+                  <div className="absolute inset-0 bg-green-900 flex flex-col items-center justify-center text-white m-2 text-center z-10">
                     <h2 className="text-3xl font-bold mb-2">GAME OVER</h2>
                     <p className="mb-6">Final Score: {score}</p>
                     <div className="flex flex-col gap-3 w-64">

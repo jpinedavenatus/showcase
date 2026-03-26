@@ -4,8 +4,9 @@ import { TextFiller } from '../components/DisplayUtils';
 import { E_DEVICE_TYPE, IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
+import Sidebar from '../components/Sidebar';
 
-const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
+const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -26,14 +27,18 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage }) => {
 
   return (
     <>
-      {/* <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> */}
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
 
-      <div id="slot-desktop-takeover" className="w-[970px] justify-center flex m-auto mt-5"></div>
+      <div className="z-[99999] fixed md:hidden flex inset-0 bg-white bg-opacity-85 backdrop-blur-sm w-full  center justify-center">
+        <span className='flex self-center text-2xl text-gray-800 justify-center text-center'>For the best experience, please open this page on a desktop.</span>
+      </div>
+      <div id="slot-desktop-takeover" className="hidden w-[970px] justify-center md:flex m-auto mt-5"></div>
 
       <div
         id="content-container"
-        className="m-auto w-full max-w-5xl  sm:w-sm p-5 flex justify-center bg-gray-100 mb-10"
-      >
+        className="hidden m-auto w-full max-w-5xl  sm:w-sm p-5 md:flex justify-center bg-gray-100 mb-10"
+      >  
+
         <div className="flex flex-col md:flex-row  gap-5  ">
           <main
             id="article-body"

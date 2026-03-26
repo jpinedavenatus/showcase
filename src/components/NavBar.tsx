@@ -38,6 +38,7 @@ const navigation: tNavBar[] = [
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
+
 interface INavProps {
   setPage: Dispatch<SetStateAction<string>>;
 }
@@ -94,7 +95,7 @@ const NavBar: FC<INavProps> = ({ setPage }) => {
           </div>
         </div>
 
-        <DisclosurePanel className="md:hidden">
+        <DisclosurePanel className="md:hidden  z-[99999]">
           <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 ">
             {navigation.map((tab) => (
               <Link

@@ -18,9 +18,9 @@ const DesktopInterstitial: FC<IPageProps> = ({ setPage, currentPage, pageHeader 
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
+      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
       <div className="flex justify-center p-4 mt-50">
-      
+       
        <div className="flex flex-col items-center justify-center">
       
       {/* Monitor Frame */}

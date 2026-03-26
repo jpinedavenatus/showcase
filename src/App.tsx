@@ -22,6 +22,14 @@ const App = () => {
   const [currentPage, setPage] = useState('');
   const [pageHeader, setPageHeader] = useState('');
   useEffect(() => {
+    if (currentPage == '') {
+      const params = new URLSearchParams(location.search);
+
+      const pageId = params.get('pageId');
+      if (pageId != null) {
+        setPage(pageId);
+      }
+    }
     WebFont.load({
       google: {
         families: ['Outfit:400,500,600,700,800,900'],
@@ -82,8 +90,8 @@ const App = () => {
               element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
             />
 
-            <Route path="/preroll-video" element={<PrerollVideo />} />
-            <Route path="/reward-video" element={<RewardVideo />} />
+            <Route path="/preroll-video" element={<PrerollVideo currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route path="/reward-video" element={<RewardVideo currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
             <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
 
             <Route
