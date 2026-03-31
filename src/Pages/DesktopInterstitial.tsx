@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import { useLocation } from 'react-router-dom';
 import interstitialGIF from '../images/interstitial.gif';
 
-const DesktopInterstitial: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const DesktopInterstitial: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -18,11 +18,11 @@ const DesktopInterstitial: FC<IPageProps> = ({ setPage, currentPage, pageHeader 
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
-      <div className="flex justify-center p-4 mt-50">
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} />
+      <div className="flex justify-center p-4 mt-5">
        
        <div className="flex flex-col items-center justify-center">
-      
+          <h1 className="font-semibold text-2xl uppercase mb-5 self-baseline">Desktop <span className='text-venatusred font-bold'>Interstitial</span></h1>
       {/* Monitor Frame */}
       <div className="relative bg-black rounded-2xl shadow-2xl p-3 w-[800px] h-[500px]">
         

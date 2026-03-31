@@ -20,7 +20,7 @@ import RewardVideo from './Pages/RewardVideo';
 import DesktopInterstitial from './Pages/DesktopInterstitial';
 const App = () => {
   const [currentPage, setPage] = useState('');
-  const [pageHeader, setPageHeader] = useState('');
+  const [category, setCategory] = useState('');
   useEffect(() => {
     if (currentPage == '') {
       const params = new URLSearchParams(location.search);
@@ -55,8 +55,8 @@ const App = () => {
                 <CategoryPage
                   currentPage={currentPage}
                   setPage={setPage}
-                  setPageHeader={setPageHeader}
-                  pageHeader="Publisher"
+                  setCategory={setCategory}
+                  category="Publisher"
                 />
               }
             />
@@ -66,8 +66,8 @@ const App = () => {
                 <CategoryPage
                   currentPage={currentPage}
                   setPage={setPage}
-                  setPageHeader={setPageHeader}
-                  pageHeader="Advertiser"
+                  setCategory={setCategory}
+                  category="Advertiser"
                 />
               }
             />
@@ -75,28 +75,28 @@ const App = () => {
             {/* subpages */}
             <Route
               path="/desktop-takeover"
-              element={<DesktopTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+              element={<DesktopTakeover currentPage={currentPage} setPage={setPage} category={category} />}
             />
             <Route
               path="/mobile-takeover"
-              element={<MobileTakeover currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+              element={<MobileTakeover currentPage={currentPage} setPage={setPage} category={category} />}
             />
             <Route
               path="/desktop-view"
-              element={<DesktopView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+              element={<DesktopView currentPage={currentPage} setPage={setPage} category={category} />}
             />
             <Route
               path="/mobile-view"
-              element={<MobileView currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+              element={<MobileView currentPage={currentPage} setPage={setPage} category={category} />}
             />
 
-            <Route path="/preroll-video" element={<PrerollVideo currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-            <Route path="/reward-video" element={<RewardVideo currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
-            <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />} />
+            <Route path="/preroll-video" element={<PrerollVideo currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/reward-video" element={<RewardVideo currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} category={category} />} />
 
             <Route
               path="/testpage"
-              element={<TestPage currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />}
+              element={<TestPage currentPage={currentPage} setPage={setPage} category={category} />}
             />
           </Routes>
         </div>

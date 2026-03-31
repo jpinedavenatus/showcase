@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
 import Sidebar from '../components/Sidebar';
 
-const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -27,7 +27,7 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =
 
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} />
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} />
 
       <div className="z-[99999] fixed md:hidden flex inset-0 bg-white bg-opacity-85 backdrop-blur-sm w-full  center justify-center">
         <span className='flex self-center text-2xl text-gray-800 justify-center text-center'>For the best experience, please open this page on a desktop.</span>

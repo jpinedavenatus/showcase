@@ -7,7 +7,7 @@ import Sidebar from '../components/Sidebar';
 import DisplayAds from '../modules/DisplayAd';
 import mobileHS from '../images/300x100.jpg'
 
-const MobileView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const MobileView: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -21,7 +21,7 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
   }, [currentPage, setPage, location.search]);
   return (
     <>
-     <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} /> 
       <div className="flex justify-center items-center my-10">
         <DisplayAds placementName="mobile_horizontal_sticky" page={currentPage} />
         {/* <!-- Phone body --> */}

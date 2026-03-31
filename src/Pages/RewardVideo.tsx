@@ -12,7 +12,7 @@ interface Point {
   y: number;
 }
 
-const RewardVideo: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const RewardVideo: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   // Game Refs
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const gameInterval = useRef<number | null>(null);
@@ -199,7 +199,7 @@ const RewardVideo: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
 
   return (
     <>
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} /> 
       <div id="content-container" className="flex justify-center p-4 mt-5">
         <div className="w-full max-w-6xl sm:w-sm md:m-h-[250]">
           <div className="flex flex-col md:flex-row gap-5">

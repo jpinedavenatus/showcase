@@ -11,8 +11,8 @@ type TInnerAccordionProps = {
   children: React.ReactNode;
 };
 
-const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) => {
-  const categoriesMenu = pageHeader === 'Publisher' ? PUBLISHERS_MENU : ADVERTISERS_MENU;
+const CategoryPage: FC<IPageProps> = ({ setPage, category, setCategory }) => {
+  const categoriesMenu = category === 'Publisher' ? PUBLISHERS_MENU : ADVERTISERS_MENU;
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [activeSubIndex, setActiveSubIndex] = useState<number | null>(null);
@@ -24,9 +24,9 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
     setActiveSubIndex(activeSubIndex === index ? null : index);
   };
   useEffect(() => {
-    console.log('category .. pageHeader', pageHeader);
+    console.log('category .. category', category);
     return () => {
-      setPageHeader?.(pageHeader ?? '');
+      setCategory?.(category ?? '');
       setActiveIndex(null);
       setActiveSubIndex(null);
     };
@@ -88,7 +88,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, pageHeader, setPageHeader }) =>
     <>
       <div className="max-w-6xl mx-auto space-y-3 mb-5 mt-10 px-5">
         {/* Header */}
-        {pageHeader && <h1 className="flex font-semi text-4xl justify-center">{pageHeader}</h1>}
+        {category && <h1 className="flex font-semi text-4xl justify-center">{category}</h1>}
         {categoriesMenu.map((item, index) => {
           const isOpen = activeIndex === index;
 

@@ -1,12 +1,10 @@
 import { FC, useEffect, useRef } from 'react';
 import { AdProps } from '../types';
+import { isHSorVideoSlider } from '../components/utils';
 
 const Ad: FC<AdProps> = ({ placementName, alias }) => {
   const elRef = useRef(null);
-  const isHSorVideoSlider = () => {
-    const validPlacements = ['horizontal_sticky', 'video_slider', 'pvp_video_slider'];
-    return validPlacements.includes(placementName);
-  };
+
 
   useEffect(() => {
     let placement: any;
@@ -21,7 +19,7 @@ const Ad: FC<AdProps> = ({ placementName, alias }) => {
         scope.Config.verticalSticky().display();
       } else {
         placement = scope.Config.get(placementName, alias).display(
-          isHSorVideoSlider() ? { body: true } : elRef.current,
+          isHSorVideoSlider(placementName) ? { body: true } : elRef.current,
         );
       }
     };

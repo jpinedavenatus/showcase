@@ -3,7 +3,7 @@ import { IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 
-const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const location = useLocation();
   useEffect(() => {
@@ -23,7 +23,7 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) =>
   }, [currentPage, setPage, location.search]);
   return (
     <>
-       <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} /> 
 
       <div className="flex justify-center items-center mt-10">
         {/* Phone body */}

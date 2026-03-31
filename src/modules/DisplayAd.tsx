@@ -1,3 +1,4 @@
+import { isHSorVideoSlider } from '../components/utils';
 import Ad from './Ad';
 import { FC } from 'react';
 const DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placementName }) => {
@@ -43,7 +44,7 @@ const DisplayAds: FC<{ page: string; placementName: string }> = ({ page, placeme
           <Ad placementName={placementName} />
         </div>
       );
-    else if (placementName == 'vertical_sticky' || placementName == 'horizontal_sticky'|| placementName == 'mobile_horizontal_sticky' )
+    else if (isHSorVideoSlider(placementName))
       return <Ad placementName={placementName} />
     else
       return (

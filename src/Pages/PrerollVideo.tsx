@@ -4,7 +4,7 @@ import { TextFiller } from '../components/DisplayUtils';
 import { IPageProps } from '../types';
 import Sidebar from '../components/Sidebar';
 
-const PrerollVideo: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const PrerollVideo: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const [videoVisible, setVideoVisible] = useState<boolean>(false);
   let pvp: pvPlayer;
 
@@ -44,7 +44,7 @@ const PrerollVideo: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
       ></div>
       {videoVisible && <div className="z-10 fixed inset-0 bg-black bg-opacity-65 backdrop-blur-sm"></div>}
 
-      <Sidebar currentPage={currentPage} setPage={setPage} pageHeader={pageHeader} /> 
+      <Sidebar currentPage={currentPage} setPage={setPage} category={category} /> 
       <div id="content-container" className="flex justify-center p-4 mt-5">
         <div className="w-full max-w-6xl sm:w-sm md:m-h-[250]">
           <div className="flex flex-col md:flex-row  gap-5">

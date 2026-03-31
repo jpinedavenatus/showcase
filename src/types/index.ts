@@ -16,8 +16,8 @@ export interface ISubPages {
 export interface IPageProps {
   setPage: Dispatch<SetStateAction<string>>;
   currentPage: string;
-  setPageHeader?: Dispatch<SetStateAction<string>>;
-  pageHeader?: string;
+  setCategory?: Dispatch<SetStateAction<string>>;
+  category: string;
 }
 
 export {};

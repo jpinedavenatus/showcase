@@ -10,10 +10,24 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 
-const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
+const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
+  const saveHeader = (category: string) => {
+    localStorage.setItem('category', category)
+  }
+
+  const getHeader = () => {
+    return localStorage.getItem('category') ?? ''
+  }
+
   const [isCollapsed, setisCollapsed] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
-  const menu: TMenu[] = pageHeader === 'Publisher' ? PUBLISHERS_MENU : ADVERTISERS_MENU;
+
+  if (category != '' && category != undefined) {
+    saveHeader(category)
+  }
+
+  const sideBarLabel = getHeader();
+  const menu: TMenu[] = getHeader() === 'Publisher' ? PUBLISHERS_MENU : ADVERTISERS_MENU;
 
   const iconMap: {
     [key: string]: ForwardRefExoticComponent<SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>>;
@@ -24,10 +38,43 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
     VideoCameraIcon,
     FilmIcon,
   };
+  type TInnerAccordionProps = {
+    index: number;
+    isOpen: boolean;
+    category: string;
+    onToggle: () => void;
+    children: React.ReactNode;
+  };
+  const [activeSubIndex, setActiveSubIndex] = useState<number | null>(null);
+
+  const toggleSubAccordion = (index: number) => {
+    setActiveSubIndex(activeSubIndex === index ? null : index);
+  };
 
   /*   const toggleAccordion = (index: number) => {
       setDropdownOpen(dropdownOpen === index ? null : index);
     }; */
+
+  const InnerAccordion = ({ isOpen, category, onToggle, children }: TInnerAccordionProps) => (
+    <div className="border bg-slate-100 border-gray-300 overflow-hidden my-2">
+      <button
+        onClick={() => onToggle()}
+        className="pl-5 text-md w-full flex justify-between items-center px-2 py-1 font-semibold text-left text-white bg-gray-700 hover:bg-venatusred hover:text-white transition"
+      >
+        {category}
+        <span className="text-lg">{isOpen ? '-' : '+'}</span>
+      </button>
+
+      {/* Content */}
+      <div className={`grid transition-all duration-300 ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+        <div className="overflow-hidden">
+          <div className="p-2 border-t">
+            <div className=" gap-2">{children}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -42,7 +89,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
           className={`flex items-center  p-4 border-b-2 border-b-gray-200
            ${isCollapsed ? 'justify-center' : 'justify-between'}`}
         >
-          {!isCollapsed && <span className="font-bold text-lg">{pageHeader}</span>}
+          {!isCollapsed && <span className="font-bold text-lg">{sideBarLabel}</span>}
           <button
             onClick={() => setisCollapsed(!isCollapsed)}
             className="border py-1 px-2 rounded-md hover:text-gray-500 "
@@ -85,21 +132,52 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, pageHeader }) => {
                     className={`px-2 grid  transition-all duration-300 ${dropdownOpen === index && !isCollapsed ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'} `}
                   >
                     <div className="overflow-hidden">
-                      {menuItems.subPages &&
-                        menuItems.subPages.map((sub) => (
-                          <div key={sub.name}>
-                            <Link
-                              className={`px-2 py-1 my-2 cursor-pointer w-full block 
-                          ${sub.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
-                              to={`${sub.path}?pageId=${sub.pageId}`}
-                              onClick={() => {
-                                setPage(sub.pageId);
-                              }}
+
+                      {menuItems.subCategory ? <>
+                        {menuItems.subCategory.map((item, subIndex) => {
+                          return (
+                            <InnerAccordion
+                              index={subIndex}
+                              isOpen={activeSubIndex === subIndex}
+                              onToggle={() => toggleSubAccordion(subIndex)}
+                              category={item.category}
                             >
-                              {sub.name}
-                            </Link>
-                          </div>
-                        ))}
+                              {item?.subPages.map((subitems) => (
+                                <Link
+                                  className={`px-2 py-1  cursor-pointer w-full block 
+                          ${subitems.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
+                                  to={`${subitems.path}?pageId=${subitems}`}
+                                  onClick={() => {
+                                    setPage(subitems.pageId);
+                                  }}
+                                >
+                                  {subitems.name}
+                                </Link>
+                              ))}
+                            </InnerAccordion>
+                          );
+                        })}
+                      </>
+                        :
+                        <>
+                          {menuItems.subPages &&
+                            menuItems.subPages.map((sub) => (
+                              <div key={sub.name}>
+                                <Link
+                                  className={`px-2 py-1 my-2 cursor-pointer w-full block 
+                          ${sub.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
+                                  to={`${sub.path}?pageId=${sub.pageId}`}
+                                  onClick={() => {
+                                    setPage(sub.pageId);
+                                  }}
+                                >
+                                  {sub.name}
+                                </Link>
+                              </div>
+                            ))}
+                        </>
+                      }
+
                     </div>
                   </div>
                 </div>
