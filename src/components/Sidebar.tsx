@@ -115,7 +115,10 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                   ${isCollapsed ? 'justify-center' : 'justify-between'}
                   ${dropdownOpen === index ? 'bg-venatusred text-white ' : ''}
                 `}
-                    onClick={() => setDropdownOpen(dropdownOpen === index ? -1 : index)} //supports toggle change by setting to
+                    onClick={() => {
+                      setDropdownOpen(dropdownOpen === index ? -1 : index);
+                      setisCollapsed(false)
+                    }} //supports toggle change by setting to
                   >
                     <span>
                       {!isCollapsed

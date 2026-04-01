@@ -22,10 +22,10 @@ const MobileView: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   return (
     <>
       <Sidebar currentPage={currentPage} setPage={setPage} category={category} /> 
-      <div className="flex justify-center items-center my-10">
+      <div className="flex justify-center items-center 4xl:my-10">
         <DisplayAds placementName="mobile_horizontal_sticky" page={currentPage} />
         {/* <!-- Phone body --> */}
-        <div className="relative w-[390px] md:h-[780px] md:bg-black md:rounded-[3rem] p-3 md:shadow-2xl">
+        <div className="relative w-[390px] md:h-[780px] 4xl:scale-100 md:scale-75 md:bg-black md:rounded-[3rem] p-3 md:shadow-2xl">
           {/* <!-- Side buttons --> */}
           <div className="absolute left-[-3px] top-32 h-16 w-1 bg-gray-700 rounded hidden md:flex"></div>
           <div className="absolute left-[-3px] top-52 h-10 w-1 bg-gray-700 rounded hidden md:flex"></div>
