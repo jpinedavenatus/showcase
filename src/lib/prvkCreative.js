@@ -24,10 +24,9 @@ export class prvkCreative {
     }
   }
   removeScript() {
-    /*  if (this.#prvkScript) {
-      window.top.document.body.removeChild(this.#prvkScript);
-
-    } */
+      if (this.#prvkScript) {
+        window.top.document.body.removeChild(this.#prvkScript);
+      } 
   }
 
   #getCreativeData(props) {

@@ -8,6 +8,8 @@ import Sidebar from '../components/Sidebar';
 
 const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const location = useLocation();
+  const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP });
+  console.log('load')
   useEffect(() => {
     if (currentPage == '') {
       const params = new URLSearchParams(location.search);
@@ -16,14 +18,25 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => 
       if (pageId != null) {
         setPage(pageId);
       }
+
+      if (creative) {
+        //dummy
+        console.log('DesktopTakeover > loadw')
+      }
+      // creative.removeScript()
+    } else {
+      console.log('DesktopTakeover > load', currentPage)
     }
 
-    const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP });
+
+
 
     return () => {
-      creative.removeScript();
+      console.log('DesktopTakeover < unload')
+      document.body.style.backgroundImage = "none";
+      //  creative.removeScript();
     };
-  }, [currentPage, setPage, location.search]);
+  }, [currentPage, setPage, creative, location.search]);
 
   return (
     <>

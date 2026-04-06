@@ -5,7 +5,7 @@ import placeholder from './images/300x300.jpg';
 export const PUBLISHERS_MENU: TMenu[] = [
   {
     category: 'Takeovers',
-    collapseLabel: 'ChevronLeftIcon',
+    collapseLabel: 'PhotoIcon',
     expandLabel: 'Takeovers',
     subPages: [
       {
@@ -109,7 +109,7 @@ export const PUBLISHERS_MENU: TMenu[] = [
 export const ADVERTISERS_MENU: TMenu[] = [
   {
     category: 'Desktop Takeovers',
-    collapseLabel: 'ComputerDesktopicon',
+    collapseLabel: 'ComputerDesktopIcon',
     expandLabel: 'Desktop Takeovers',
 
     subCategory: [
@@ -486,7 +486,9 @@ export const DESKTOP_CREATIVE = (param: string) => {
     id: '4555',
   };
   type CreativeKey = keyof typeof creatives;
-  const result = creatives[param as CreativeKey] || defaultCreative;
+
+  const result = creatives[param as CreativeKey] ?? defaultCreative;
+  console.log('result >> ', result)
   return result;
 };
 

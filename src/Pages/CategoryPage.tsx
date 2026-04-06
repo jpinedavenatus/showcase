@@ -30,7 +30,7 @@ const CategoryPage: FC<IPageProps> = ({ setPage, category, setCategory }) => {
       setActiveIndex(null);
       setActiveSubIndex(null);
     };
-  }, []);
+  }, [category, setCategory]);
 
   /*
    * thumbnails template

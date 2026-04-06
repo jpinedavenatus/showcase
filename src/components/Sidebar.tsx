@@ -7,6 +7,7 @@ import {
   ComputerDesktopIcon,
   DevicePhoneMobileIcon,
   FilmIcon,
+  PhotoIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 
@@ -35,6 +36,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
     ChevronLeftIcon,
     DevicePhoneMobileIcon,
     ComputerDesktopIcon,
+    PhotoIcon,
     VideoCameraIcon,
     FilmIcon,
   };
@@ -146,10 +148,10 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                               category={item.category}
                             >
                               {item?.subPages.map((subitems) => (
-                                <Link
+                                <Link key={subitems.name}
                                   className={`px-2 py-1  cursor-pointer w-full block 
                           ${subitems.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
-                                  to={`${subitems.path}?pageId=${subitems}`}
+                                  to={`${subitems.path}?pageId=${subitems.pageId}`}
                                   onClick={() => {
                                     setPage(subitems.pageId);
                                   }}
