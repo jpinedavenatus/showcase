@@ -84,7 +84,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
       {/* Sidebar */}
       <aside
         className={`overflow-hidden hidden md:flex fixed  left-0 z-[9999]  h-screen flex-col bg-white  text-gray-900 transition-all duration-300 ease-in-out border-r border-gray-200 shadow-2xl
-        ${isCollapsed ? 'w-20' : 'w-64'}`}
+        ${isCollapsed ? 'w-16' : 'w-60'}`}
       >
         {/* Toggle Sidebar */}
         <div

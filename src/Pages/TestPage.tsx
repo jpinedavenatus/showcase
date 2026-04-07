@@ -30,12 +30,12 @@ const TestPage: FC<IPageProps> = ({ setPage, currentPage }) => {
   }, [currentPage, setPage, location.search]);
   return (
     <>
-      <div className="flex justify-center  mt-50">
+      <div className="flex justify-center  md:mt-50 -mt-10">
         <div id="content-container" className="w-full md:p-0">
           <div className="flex flex-col md:flex-row  gap-5 mt-5 ">
             <main
               id="article-body"
-              className=" space-y-2 mx-5 px-5 bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm"
+              className=" space-y-2 mx-5 px-5 md:bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm"
             >
               <h1 className="font-semibold text-2xl pt-5">
                 <span className="text-venatusred font-bold">{currentPage.replaceAll('-', ' ').toUpperCase()}</span>{' '}

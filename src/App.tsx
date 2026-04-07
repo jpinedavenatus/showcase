@@ -39,76 +39,50 @@ const App = () => {
 
   return (
     <>
-      {/* <main className='relative z-[2] h-full w-full min-h-screen '> */}
       <ProsperNewSession />
       <BrowserRouter>
         {/* Navbar at the top */}
-        <NavBar setPage={setPage} />
+        {location.pathname == '/testpage' ? (
+          <div id="header" className="hidden [@media(min-width:351px)_and_(max-width:389px)]:flex">
+            <NavBar setPage={setPage} />
+          </div>
+        ) : (
+          <NavBar setPage={setPage} />
+        )}
+
         <div id="wrapper" className="flex-1 mt-[70px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
 
-            <Route
-              path="/publisher"
-              element={
-                <CategoryPage
-                  currentPage={currentPage}
-                  setPage={setPage}
-                  setCategory={setCategory}
-                  category="Publisher"
-                />
-              }
-            />
-            <Route
-              path="/advertiser"
-              element={
-                <CategoryPage
-                  currentPage={currentPage}
-                  setPage={setPage}
-                  setCategory={setCategory}
-                  category="Advertiser"
-                />
-              }
-            />
+            <Route path="/publisher" element={<CategoryPage currentPage={currentPage} setPage={setPage} setCategory={setCategory} category="Publisher" />} />
+            <Route path="/advertiser" element={<CategoryPage currentPage={currentPage} setPage={setPage} setCategory={setCategory} category="Advertiser" />} />
             <Route path="/sandbox-demo" element={<Sandbox />} />
             {/* subpages */}
-            <Route
-              path="/desktop-takeover"
-              element={<DesktopTakeover currentPage={currentPage} setPage={setPage} category={category} />}
-            />
-            <Route
-              path="/mobile-takeover"
-              element={<MobileTakeover currentPage={currentPage} setPage={setPage} category={category} />}
-            />
-            <Route
-              path="/desktop-view"
-              element={<DesktopView currentPage={currentPage} setPage={setPage} category={category} />}
-            />
-            <Route
-              path="/mobile-view"
-              element={<MobileView currentPage={currentPage} setPage={setPage} category={category} />}
-            />
+            <Route path="/desktop-takeover" element={<DesktopTakeover currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/mobile-takeover" element={<MobileTakeover currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/desktop-view" element={<DesktopView currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/mobile-view" element={<MobileView currentPage={currentPage} setPage={setPage} category={category} />} />
 
             <Route path="/preroll-video" element={<PrerollVideo currentPage={currentPage} setPage={setPage} category={category} />} />
             <Route path="/reward-video" element={<RewardVideo currentPage={currentPage} setPage={setPage} category={category} />} />
             <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} category={category} />} />
 
-            <Route
-              path="/testpage"
-              element={<TestPage currentPage={currentPage} setPage={setPage} category={category} />}
-            />
+            <Route path="/testpage" element={<TestPage currentPage={currentPage} setPage={setPage} category={category} />} />
           </Routes>
         </div>
-
-        {/* </div> */}
-        {/* </div> */}
-
-        {/* Footer at the bottom */}
       </BrowserRouter>
 
-      {/* </main> */}
-      <Footer />
+      {/* prevent nested footer for mobile takeover */}
+      {
+        location.pathname == '/mobile-takeover' ? (
+          <div id="footer" className="hidden md:flex">
+            <Footer />
+          </div>
+        ) : (
+          <Footer />
+        ) //
+      }
     </>
   );
 };

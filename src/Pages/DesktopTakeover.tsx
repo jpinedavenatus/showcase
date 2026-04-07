@@ -34,6 +34,14 @@ const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => 
     return () => {
       console.log('DesktopTakeover < unload')
       document.body.style.backgroundImage = "none";
+
+      const elements = document.querySelectorAll(".vdrm-node");
+
+      console.log('elements', elements)
+      elements.forEach((el) => {
+        console.log('DesktopTakeover >> ', el)
+        el.remove();
+      });
       //  creative.removeScript();
     };
   }, [currentPage, setPage, creative, location.search]);

@@ -62,7 +62,6 @@ const CategoryPage: FC<IPageProps> = ({ setPage, category, setCategory }) => {
       to={pageId == '' ? `${path}` : `${path}?pageId=${pageId}`}
       className="relative w-full aspect-square overflow-hidden  group block"
       onClick={() => {
-        console.log('pageId >>>>>>>>>>>>>>', pageId)
         setPage(pageId);
       }}
     >
@@ -73,12 +72,12 @@ const CategoryPage: FC<IPageProps> = ({ setPage, category, setCategory }) => {
       />
 
       <div className="absolute inset-0 items-center text-center justify-center bg-gradient-to-tr from-red-950/40 to-venatusred opacity-100/40 group-hover:opacity-0 transition flex p-2">
-        <span className="text-white text-4xl">{name}</span>
+        <span className="text-white text-xl md:text-4xl">{name}</span>
       </div>
 
       <div className="absolute inset-0 items-center text-center justify-center bg-gray-800 opacity-0 group-hover:opacity-100 transition flex p-2 border-4 border-white shadow-xl">
         <div className="text-white  border-white border-4 p-1 w-full h-full flex justify-center align-center">
-          <span className="text-3xl self-center">{name}</span>
+          <span className="text-xl md:text-3xl self-center">{name}</span>
         </div>
       </div>
     </Link>
