@@ -5,7 +5,7 @@ import { E_DEVICE_TYPE, IPageProps } from '../types';
 import { useLocation } from 'react-router-dom';
 import { prvkCreative } from '../lib/prvkCreative';
 
-const TestPage: FC<IPageProps> = ({ setPage, currentPage }) => {
+const IFramePage: FC<IPageProps> = ({ setPage, currentPage }) => {
   const location = useLocation();
   useEffect(() => {
     if (currentPage == '') {
@@ -62,4 +62,4 @@ const TestPage: FC<IPageProps> = ({ setPage, currentPage }) => {
   );
 };
 
-export default TestPage;
+export default IFramePage;

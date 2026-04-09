@@ -29,3 +29,8 @@ body {
 }
 }
 
+/* for takeeovers toggle */
+
+#prvk-toggle-container {
+    left: 0 !important;
+}

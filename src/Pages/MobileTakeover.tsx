@@ -48,7 +48,7 @@ const MobileTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => {
             <iframe
               ref={iframeRef}
               // srcDoc={html}
-              src={`testpage?pageId=${currentPage}`}
+              src={`iframepage?pageId=${currentPage}`}
               sandbox="allow-scripts allow-same-origin"
               className="w-full h-full overflow-hidden"
             />

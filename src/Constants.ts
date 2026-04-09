@@ -396,7 +396,7 @@ export const DESKTOP_CREATIVE = (param: string) => {
     'premium-expandable': {
       name: 'Premium Expandable Takeover',
       template: 'AU-900301-FALLOUTFTP',
-      id: '1602',
+      id: '1536',
     },
     'premium': {
       name: 'Premium Takeover',
@@ -440,8 +440,8 @@ export const DESKTOP_CREATIVE = (param: string) => {
     },
     'with-floor-overlay': {
       name: 'with Floor Overlay Takeover',
-      template: 'modal-takeover',
-      id: '1796',
+      template: 'KR_700952_MABINOGIFLOOR2',
+      id: '4615',
     },
     'premium-youtube': {
       name: 'Premium Youtube Takeover',
@@ -450,8 +450,8 @@ export const DESKTOP_CREATIVE = (param: string) => {
     },
     'premium-toggle': {
       name: 'Premium Toggle Takeover',
-      template: 'UK-501558-PHYRXIA',
-      id: '1621',
+      template: 'PG_100353_XBOXFY24',
+      id: '2721',
     },
     'twitch-slider': {
       name: 'Twitch Slider',
@@ -460,8 +460,8 @@ export const DESKTOP_CREATIVE = (param: string) => {
     },
     'floor-overlay-banner': {
       name: 'Floor Overlay',
-      template: 'modal-takeover',
-      id: '1893',
+      template: 'KR_700952_MABINOGIFLOOR2',
+      id: '4615',
     },
     'pushdown': {
       name: 'Pushdown Takeover',

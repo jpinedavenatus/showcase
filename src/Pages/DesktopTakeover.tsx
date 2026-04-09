@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import placeholder from '../images/img.jpg';
 import { TextFiller } from '../components/DisplayUtils';
 import { E_DEVICE_TYPE, IPageProps } from '../types';
@@ -8,68 +8,67 @@ import Sidebar from '../components/Sidebar';
 
 const DesktopTakeover: FC<IPageProps> = ({ setPage, currentPage, category }) => {
   const location = useLocation();
-  const creative = new prvkCreative({ creativeName: currentPage, device: E_DEVICE_TYPE.DESKTOP });
-  console.log('load')
+  const [isLoaded, setLoaded] = useState<boolean>(false);
+
+  console.log('DesktopTakeover > load -------------------');
   useEffect(() => {
-    if (currentPage == '') {
-      const params = new URLSearchParams(location.search);
+    if (!isLoaded) {
+      setLoaded(true);
+      let creativeName = '';
+      console.log('DesktopTakeover > useeffect load ------------- #2');
+      if (currentPage == '') {
+        const params = new URLSearchParams(location.search);
 
-      const pageId = params.get('pageId');
-      if (pageId != null) {
-        setPage(pageId);
+        const pageId = params.get('pageId');
+        if (pageId != null) {
+          creativeName = pageId;
+          setPage(pageId);
+        }
+
+        console.log('DesktopTakeover > currentPage is blank setting ', pageId);
+        // creative.removeScript()
+      } else {
+        creativeName = currentPage
+        console.log('DesktopTakeover > load', currentPage);
       }
-
+      console.log('DesktopTakeover > new CurrentPage ', currentPage);
+      const creative = new prvkCreative({ creativeName: creativeName, device: E_DEVICE_TYPE.DESKTOP });
       if (creative) {
         //dummy
-        console.log('DesktopTakeover > loadw')
       }
-      // creative.removeScript()
-    } else {
-      console.log('DesktopTakeover > load', currentPage)
     }
 
-
-
-
     return () => {
-      console.log('DesktopTakeover < unload')
-      document.body.style.backgroundImage = "none";
+      if (isLoaded) {
+        setLoaded(false)
+        console.log('DesktopTakeover << unload');
+        document.body.style.backgroundImage = 'none';
 
-      const elements = document.querySelectorAll(".vdrm-node");
-
-      console.log('elements', elements)
-      elements.forEach((el) => {
-        console.log('DesktopTakeover >> ', el)
-        el.remove();
-      });
-      //  creative.removeScript();
+        const elements = document.querySelectorAll('.vdrm-node');
+        console.log('DesktopTakeover > REMOVING >', elements);
+        elements.forEach((el) => {
+          console.log('DesktopTakeover > REMOVING >', el);
+          el.remove();
+        });
+        //  creative.removeScript();
+      }
     };
-  }, [currentPage, setPage, creative, location.search]);
+  }, [isLoaded, currentPage, setPage, location.search]);
 
   return (
     <>
       <Sidebar currentPage={currentPage} setPage={setPage} category={category} />
 
       <div className="z-[99999] fixed md:hidden flex inset-0 bg-white bg-opacity-85 backdrop-blur-sm w-full  center justify-center">
-        <span className='flex self-center text-2xl text-gray-800 justify-center text-center'>For the best experience, please open this page on a desktop.</span>
+        <span className="flex self-center text-2xl text-gray-800 justify-center text-center">For the best experience, please open this page on a desktop.</span>
       </div>
       <div id="slot-desktop-takeover" className="hidden w-[970px] justify-center md:flex m-auto mt-5"></div>
 
-      <div
-        id="content-container"
-        className="hidden m-auto w-full max-w-5xl  sm:w-sm p-5 md:flex justify-center bg-gray-100 mb-10"
-      >  
-
+      <div id="content-container" className="hidden m-auto w-full max-w-5xl  sm:w-sm p-5 md:flex justify-center bg-gray-100 mb-10">
         <div className="flex flex-col md:flex-row  gap-5  ">
-          <main
-            id="article-body"
-            className="w-full md:w-3/4 p-6 space-y-2  bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm"
-          >
+          <main id="article-body" className="w-full md:w-3/4 p-6 space-y-2  bg-gray-100 rounded-sm overflow-hidden  border shadow-lg roundwd-sm">
             <h1 className="font-semibold text-2xl">
-              <span className="text-venatusred font-bold uppercase">
-                {currentPage && currentPage.replace('-', ' ')}
-              </span>{' '}
-              TAKEOVER
+              <span className="text-venatusred font-bold uppercase">{currentPage && currentPage.replaceAll('-', ' ')}</span> TAKEOVER
             </h1>
 
             <TextFiller />

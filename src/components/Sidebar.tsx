@@ -142,6 +142,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                         {menuItems.subCategory.map((item, subIndex) => {
                           return (
                             <InnerAccordion
+                              key={item.category}
                               index={subIndex}
                               isOpen={activeSubIndex === subIndex}
                               onToggle={() => toggleSubAccordion(subIndex)}

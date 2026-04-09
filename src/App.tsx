@@ -15,7 +15,7 @@ import MobileView from './Pages/MobileView';
 import CategoryPage from './Pages/CategoryPage';
 import PrerollVideo from './Pages/PrerollVideo';
 import MobileTakeover from './Pages/MobileTakeover';
-import TestPage from './Pages/TestPage';
+import IFramePage from './Pages/IFramePage';
 import RewardVideo from './Pages/RewardVideo';
 import DesktopInterstitial from './Pages/DesktopInterstitial';
 const App = () => {
@@ -42,7 +42,7 @@ const App = () => {
       <ProsperNewSession />
       <BrowserRouter>
         {/* Navbar at the top */}
-        {location.pathname == '/testpage' ? (
+        {location.pathname == '/iframepage' ? (
           <div id="header" className="hidden [@media(min-width:351px)_and_(max-width:389px)]:flex">
             <NavBar setPage={setPage} />
           </div>
@@ -68,7 +68,7 @@ const App = () => {
             <Route path="/reward-video" element={<RewardVideo currentPage={currentPage} setPage={setPage} category={category} />} />
             <Route path="/desktop-interstitial" element={<DesktopInterstitial currentPage={currentPage} setPage={setPage} category={category} />} />
 
-            <Route path="/testpage" element={<TestPage currentPage={currentPage} setPage={setPage} category={category} />} />
+            <Route path="/iframepage" element={<IFramePage currentPage={currentPage} setPage={setPage} category={category} />} />
           </Routes>
         </div>
       </BrowserRouter>
