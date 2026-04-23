@@ -9,16 +9,16 @@ export const PUBLISHERS_MENU: TMenu[] = [
     expandLabel: 'Takeovers',
     subPages: [
       {
-        name: 'Premium Modal',
+        name: 'Desktop Modal Takeover',
         image: placeholder,
         path: '/desktop-takeover',
         pageId: 'premium-modal',
       },
       {
-        name: 'Pushdown',
-        image: placeholder,
-        path: '/desktop-takeover',
-        pageId: 'pushdown',
+      name: 'Mobile Standard Takeover',
+      image: placeholder,
+        path: '/mobile-takeover',
+        pageId: 'standard',
       },
     ],
   },
@@ -256,13 +256,13 @@ export const ADVERTISERS_MENU: TMenu[] = [
             name: 'Standard Takeover',
             image: placeholder,
             path: '/mobile-takeover',
-            pageId: 'standard-takeover',
+            pageId: 'standard',
           },
           {
             name: 'Parallax',
             image: placeholder,
             path: '/mobile-takeover',
-            pageId: 'Parallax',
+            pageId: 'parallax',
           },
           {
             name: 'Video Takeover',
@@ -494,7 +494,7 @@ export const DESKTOP_CREATIVE = (param: string) => {
 
 export const MOBILE_CREATIVE = (param: string) => {
   const creatives = {
-    'standard-takeover': {
+    'standard': {
       name: 'Standard Takeover',
       template: 'mobile-rich-media',
       id: '1613',
@@ -504,11 +504,7 @@ export const MOBILE_CREATIVE = (param: string) => {
       template: 'PG-100256-STRANGEWORLDCHILDREN',
       id: '1703',
     },
-    'standard': {
-      name: 'Standard Takeover',
-      template: 'mobile-rich-media',
-      id: '1615',
-    },
+   
     'video': {
       name: 'Takeover',
       template: 'mobile-rich-media',

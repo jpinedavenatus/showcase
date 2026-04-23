@@ -43,8 +43,8 @@ const App = () => {
       <BrowserRouter>
         {/* Navbar at the top */}
         {location.pathname == '/iframepage' ? (
-          <div id="header" className="hidden [@media(min-width:351px)_and_(max-width:389px)]:flex">
-            <NavBar setPage={setPage} />
+          <div id="iframe-header" className="h-[100px] p-2 border-dashed border-2 bg-sky-500 flex justify-center rounded-md center font-bold">
+            HEADER
           </div>
         ) : (
           <NavBar setPage={setPage} />

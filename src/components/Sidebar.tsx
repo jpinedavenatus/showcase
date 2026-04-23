@@ -20,7 +20,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
     return localStorage.getItem('category') ?? ''
   }
 
-  const [isCollapsed, setisCollapsed] = useState(false);
+  const [isCollapsed, setCollapsed] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
 
   if (category != '' && category != undefined) {
@@ -53,9 +53,10 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
     setActiveSubIndex(activeSubIndex === index ? null : index);
   };
 
-  /*   const toggleAccordion = (index: number) => {
-      setDropdownOpen(dropdownOpen === index ? null : index);
-    }; */
+  const menuClick = (pageId: string) => {
+    setCollapsed(true)
+    setPage(pageId);
+  }
 
   const InnerAccordion = ({ isOpen, category, onToggle, children }: TInnerAccordionProps) => (
     <div className="border bg-slate-100 border-gray-300 overflow-hidden my-2">
@@ -93,7 +94,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
         >
           {!isCollapsed && <span className="font-bold text-lg">{sideBarLabel}</span>}
           <button
-            onClick={() => setisCollapsed(!isCollapsed)}
+            onClick={() => setCollapsed(!isCollapsed)}
             className="border py-1 px-2 rounded-md hover:text-gray-500 "
           >
             {isCollapsed ? '☰' : <ChevronLeftIcon className="w-5 h-5 text-gray-600" />}
@@ -119,7 +120,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                 `}
                     onClick={() => {
                       setDropdownOpen(dropdownOpen === index ? -1 : index);
-                      setisCollapsed(false)
+                      setCollapsed(false)
                     }} //supports toggle change by setting to
                   >
                     <span>
@@ -154,7 +155,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                           ${subitems.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
                                   to={`${subitems.path}?pageId=${subitems.pageId}`}
                                   onClick={() => {
-                                    setPage(subitems.pageId);
+                                    menuClick(subitems.pageId);
                                   }}
                                 >
                                   {subitems.name}
@@ -174,7 +175,7 @@ const Sidebar: FC<IPageProps> = ({ setPage, currentPage, category }) => {
                           ${sub.pageId === currentPage ? 'bg-gray-800 text-white' : 'hover:bg-gray-800 hover:text-white'} `}
                                   to={`${sub.path}?pageId=${sub.pageId}`}
                                   onClick={() => {
-                                    setPage(sub.pageId);
+                                    menuClick(sub.pageId);
                                   }}
                                 >
                                   {sub.name}
